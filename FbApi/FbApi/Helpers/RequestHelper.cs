@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.IO;
 using System.Net;
 
-namespace FbApi.Helpers
+namespace Fb.Api.Helpers
 {
     static class RequestHelper
     {
