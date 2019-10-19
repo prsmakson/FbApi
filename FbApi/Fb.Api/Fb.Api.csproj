@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Fb.Api</RootNamespace>
+    <AssemblyName>Fb.Api</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

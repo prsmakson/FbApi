@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Http;
-using FbApi.Helpers;
+using Fb.Api.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace FbApi.Models.Exstension
+namespace Fb.Api.Models.Exstension
 {
-    static class ClassExtensions
+    public static class ClassExtensions
     {
 
         public static IEnumerable<Business> GetAllBusiness(this Account account)

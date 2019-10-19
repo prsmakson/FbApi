@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Net.Http;
-using FbApi.Models.Exstension;
-using FbApi.Models;
+using Fb.Api.Models.Exstension;
+using Fb.Api.Models;
 using System.Collections.Generic;
 using System.Linq;
-namespace FbApi
+namespace Fb.Api
 {
     class Program
     {

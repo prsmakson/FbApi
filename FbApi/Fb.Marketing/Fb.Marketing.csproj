@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FbApi\Fb.Api.csproj" />
+    <ProjectReference Include="..\Fb.Api\Fb.Api.csproj" />
   </ItemGroup>
 
 </Project>
