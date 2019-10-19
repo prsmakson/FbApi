@@ -14,10 +14,15 @@ namespace FbApi.Models.Exstension
         public static IEnumerable<Business> GetAllBusiness(this Account account)
         {
             string request = account.baseUri + "me/" + "?fields=businesses&access_token=" + account.access_token;
-            var text= RequestHelper.SendGetRequest(request);
-            return ParseJsonResponse.ParseBusiness(text) ?? new List<Business>();
+            var jText = RequestHelper.SendGetRequest(request);
+            return ParseJsonResponse.ParseBusiness(jText) ?? new List<Business>();
+        }
+        public static IEnumerable<AdAccount> GetAdAccounts(this Account account, string businessId)
+        {
+            string request = account.baseUri + businessId + "?fields=owned_ad_accounts{name,account_id,account_status}&access_token=" + account.access_token;
+            var jText = RequestHelper.SendGetRequest(request);
+            return ParseJsonResponse.ParseAdAccount(jText) ?? new List<AdAccount>();
         }
 
-        
     }
 }
