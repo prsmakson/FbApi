@@ -4,10 +4,8 @@ using System.Text;
 
 namespace FbApi.Models
 {
-    class AdAccount
+    class AdAccount:BaseModel
     {
-        public string name { get; set; }
-        public string id { get; set; }
         public ACCOUNT_STATUS account_status { get; set; }
     }
     public enum ACCOUNT_STATUS: int
