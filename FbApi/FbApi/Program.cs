@@ -1,30 +1,18 @@
 ﻿using System;
-using OpenQA.Selenium.Chrome;
 using System.Net.Http;
-using System.Threading.Tasks;
-
+using FbApi.Models.Exstension;
+using FbApi.Models;
 namespace FbApi
 {
-   
     class Program
-    { 
-        static readonly HttpClient client = new HttpClient();
-        static async Task Main()
+    {
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            try
-            {
-                HttpResponseMessage response = await client.GetAsync("http://www.droidapps.ga/");
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(responseBody);
-            }
-             
-            catch (HttpRequestException e)
-            {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
-            }
+            string token = "EAABsbCS1iHgBAPSLeWhPLLP01OxtvT8LwoPyCUHBMpTCZBrUd6CrIonZB4UULmLZB8moaV80I7ml98atz4TC2sEEptfVdoggbwYwcTawpV6GgCWiZBCEs2dx8Bjvaf21ZCFsjGOavej2il2HW3i95k6dPpJ4PZAF9fTZANlMNlMqQZDZD";
+            Account R = new Account(token);
+            foreach (var r in R.GetAllBusiness())
+                Console.WriteLine($"Name:{r.name}, id: {r.id}");
+            Console.ReadLine();
         }
     }
 }
