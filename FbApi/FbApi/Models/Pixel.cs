@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FbApi.Models
 {
-    class Pixel
+    class Pixel : BaseModel
     {
     }
 }

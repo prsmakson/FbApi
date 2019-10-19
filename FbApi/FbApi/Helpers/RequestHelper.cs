@@ -9,13 +9,13 @@ namespace FbApi.Helpers
 {
     static class RequestHelper
     {
-        
+
         static RequestHelper()
         {
-           
+
         }
 
-        public static  string SendGetRequest(string request)
+        public static string SendGetRequest(string request)
         {
             WebRequest req = WebRequest.Create(request);
             WebResponse response = req.GetResponse();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FbApi.Models
 {
-    class Ads : BaseModel
+    class Page : BaseModel
     {
     }
 }

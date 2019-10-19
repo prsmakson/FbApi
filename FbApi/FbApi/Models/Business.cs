@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FbApi.Models
 {
-    class Business:BaseModel
+    class Business : BaseModel
     {
     }
 }

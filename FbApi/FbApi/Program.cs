@@ -15,8 +15,12 @@ namespace FbApi
             var business = R.GetAllBusiness().ToList();
             foreach (var r in business) 
                 Console.WriteLine($"Name:{r.name}, id: {r.id}");
-            foreach (var rs in R.GetAdAccounts(business.First(a=>a.name== "OlgaBus21").id))
+            foreach (var rs in business.First(a=>a.name== "OlgaBus21").GetAdAccounts(R))
                 Console.WriteLine($"Name:{rs.name},id:{rs.id},account_status:{rs.account_status}");
+            foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPages(R))
+                Console.WriteLine($"Name:{rs.name},id:{rs.id}");
+            foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPixels(R))
+                Console.WriteLine($"Name:{rs.name},id:{rs.id}");
             Console.ReadLine();
         }
     }
