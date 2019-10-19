@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FbApi.Models
+namespace Fb.Api.Models
 {
-    public abstract class BaseModel
+    public  abstract class BaseModel
     {
         public string name { get; set; }
         public string id { get; set; }
