@@ -3,17 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fb.Api", "FbApi\Fb.Api.csproj", "{DD24F554-7A07-4F78-888E-807007BFEB42}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fb.Tool", "Fb.Tool\Fb.Tool.csproj", "{75CEF83C-3BF6-453E-96A8-0A7D431B621F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{DD24F554-7A07-4F78-888E-807007BFEB42} = {DD24F554-7A07-4F78-888E-807007BFEB42}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fb.Marketing", "Fb.Marketing\Fb.Marketing.csproj", "{05A170F5-8AC6-4BED-B281-9AC1DA1FEAE5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{DD24F554-7A07-4F78-888E-807007BFEB42} = {DD24F554-7A07-4F78-888E-807007BFEB42}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FbApi", "FbApi\FbApi.csproj", "{DD24F554-7A07-4F78-888E-807007BFEB42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +15,6 @@ Global
 		{DD24F554-7A07-4F78-888E-807007BFEB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD24F554-7A07-4F78-888E-807007BFEB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD24F554-7A07-4F78-888E-807007BFEB42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75CEF83C-3BF6-453E-96A8-0A7D431B621F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75CEF83C-3BF6-453E-96A8-0A7D431B621F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75CEF83C-3BF6-453E-96A8-0A7D431B621F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75CEF83C-3BF6-453E-96A8-0A7D431B621F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05A170F5-8AC6-4BED-B281-9AC1DA1FEAE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05A170F5-8AC6-4BED-B281-9AC1DA1FEAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05A170F5-8AC6-4BED-B281-9AC1DA1FEAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05A170F5-8AC6-4BED-B281-9AC1DA1FEAE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

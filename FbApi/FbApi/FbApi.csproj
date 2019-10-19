@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FbApi\Fb.Api.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="77.0.3865.4000" />
   </ItemGroup>
 
 </Project>

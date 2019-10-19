@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fb.Api.Models
+namespace FbApi.Models
 {
-    sealed public class AdAccount : BaseModel
+    class AdAccount : BaseModel
     {
         public ACCOUNT_STATUS account_status { get; set; }
     }

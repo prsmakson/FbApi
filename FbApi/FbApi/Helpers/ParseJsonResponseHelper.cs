@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using Fb.Api.Models;
+using FbApi.Models;
 using System.Linq;
-namespace Fb.Api.Helpers
+namespace FbApi.Helpers
 {
     static class ParseJsonResponseHelper
     {

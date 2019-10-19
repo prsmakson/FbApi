@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fb.Api.Models
+namespace FbApi.Models
 {
-    sealed public class Page : BaseModel
+    class Page : BaseModel
     {
     }
 }
