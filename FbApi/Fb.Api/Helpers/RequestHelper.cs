@@ -18,11 +18,11 @@ namespace Fb.Api.Helpers
 
         public static string SendGetRequest(string request,string userAgent=null)
         {
+
             HttpWebRequest req =(HttpWebRequest)WebRequest.Create(request);
-            req.ContentType = "application/json-patch+json";
             req.Method = "GET";
             req.UserAgent = userAgent;
-            WebResponse response = req.GetResponse();
+            var response = (HttpWebResponse)req.GetResponse();
             using (Stream stream = response.GetResponseStream())
             {
                 using (StreamReader reader = new StreamReader(stream))

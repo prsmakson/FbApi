@@ -5,6 +5,8 @@ using Fb.Api.Models;
 using Fb.Api.Models.Exstension;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+
 namespace Fb.Marketing
 {
     class Program
@@ -25,9 +27,10 @@ namespace Fb.Marketing
                 foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPixels(R))
                     Console.WriteLine($"Name:{rs.name},id:{rs.id}");
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+            
+            catch(WebException wex)
+            { 
+                Console.WriteLine(wex.Response.Headers); 
             }
             Console.ReadLine();
         }

@@ -29,7 +29,7 @@ namespace Fb.Api.Models.Exstension
         public static IEnumerable<Pixel> GetPixels(this Business business, Account account)
         {
 
-            string request = account.baseUri + business.id + "?fields=owned_pixels{name,id,shared_accounts}&access_token=" + account.getToken();
+            string request = account.baseUri + business.id + "?fields=owned_pixels{name,id}&access_token=" + account.getToken();
             return ParseJsonResponseHelper.ParsePixels(SendRequest(request)) ?? new List<Pixel>();
         }
         private static string SendRequest(string request)
