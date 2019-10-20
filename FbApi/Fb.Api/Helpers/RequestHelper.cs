@@ -4,6 +4,7 @@ using System.Text;
 using System.Net.Http;
 using System.IO;
 using System.Net;
+using System.Net.Http.Headers;
 
 namespace Fb.Api.Helpers
 {
@@ -15,9 +16,12 @@ namespace Fb.Api.Helpers
 
         }
 
-        public static string SendGetRequest(string request)
+        public static string SendGetRequest(string request,string userAgent=null)
         {
-            WebRequest req = WebRequest.Create(request);
+            HttpWebRequest req =(HttpWebRequest)WebRequest.Create(request);
+            req.ContentType = "application/json-patch+json";
+            req.Method = "GET";
+            req.UserAgent = userAgent;
             WebResponse response = req.GetResponse();
             using (Stream stream = response.GetResponseStream())
             {

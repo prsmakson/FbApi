@@ -106,5 +106,24 @@ namespace Fb.Api.Helpers
             }
 
         }
+        public static string GetEror(string jString)
+        {
+            try
+            {
+                JObject obj = JObject.Parse(jString);
+                var jError = obj["error"];
+                if (jError==null)
+                    return null;
+               
+
+                return jError.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }
