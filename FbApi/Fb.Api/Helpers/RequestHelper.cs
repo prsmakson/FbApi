@@ -16,11 +16,18 @@ namespace Fb.Api.Helpers
 
         }
 
-        public static string SendGetRequest(string request,string userAgent=null)
+        public static string SendGetRequest(string request, string userAgent = null)
         {
-
-            HttpWebRequest req =(HttpWebRequest)WebRequest.Create(request);
-            req.Method = "GET";
+            return SendRequest(request, userAgent, "GET");
+        }
+        public static string SendPostRequest(string Request, string userAgent)
+        {
+            return SendRequest(Request, userAgent, "POST");
+        }
+        private static string SendRequest(string Request, string userAgent, string method)
+        {
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(Request);
+            req.Method = method;
             req.UserAgent = userAgent;
             var response = (HttpWebResponse)req.GetResponse();
             using (Stream stream = response.GetResponseStream())
@@ -30,12 +37,6 @@ namespace Fb.Api.Helpers
                     return reader.ReadToEnd();
                 }
             }
-            // Above three lines can be replaced with new helper method below
-            // string responseBody = await client.GetStringAsync(uri);
-        }
-        public static void SendPostRequest(string Request)
-        {
-
         }
 
     }

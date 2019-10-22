@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    public class Page : BaseModel
+    class AdLabel
     {
-
     }
 }
