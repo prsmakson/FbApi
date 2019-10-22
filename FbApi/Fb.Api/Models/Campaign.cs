@@ -4,19 +4,24 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    class Campaign : BaseModel
+    class Campaign : BaseBusiness
     {
 
         public string buying_type { get; set; } = "AUCTION"; // 
 
         public ENUM_OBJECTIVE objective { get; set; }
+        #region ParamsNotEntity
+        
+        #endregion
         //public  override string ToString()
         //{
-            
+
         //}
+        
+
     }
 
-   
+
     public enum ENUM_OBJECTIVE : int
     {
         APP_INSTALLS,
@@ -41,5 +46,7 @@ namespace Fb.Api.Models
         DELETED,
         ARCHIVED 
     }
+   
+
 }
 

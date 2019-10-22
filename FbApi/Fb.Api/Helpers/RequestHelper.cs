@@ -10,7 +10,7 @@ namespace Fb.Api.Helpers
 {
     static class RequestHelper
     {
-        public static string SendRequest(string request, HttpWEbRequestSettings settings)
+        private static string SendRequest(string request, HttpWEbRequestSettings settings)
         {
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(request);
             req.Method = settings.requestMethod;
@@ -25,9 +25,17 @@ namespace Fb.Api.Helpers
                 }
             }
         }
-
+        public static string SendPostRequest(string request, HttpWEbRequestSettings settings)
+        {
+            return SendRequest(request, settings);
+        }
+        public static string SendGetRequest(string request, HttpWEbRequestSettings settings)
+        {
+            return SendRequest(request, settings);
+        }
 
     }
+   
     public class HttpWEbRequestSettings
     {
         public string requestMethod { get; set; }

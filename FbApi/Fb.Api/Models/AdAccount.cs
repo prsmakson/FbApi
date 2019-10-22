@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    public class AdAccount : BaseModel
+    public class AdAccount : BaseBusiness
     {
         public ACCOUNT_STATUS account_status { get; set; }
     }

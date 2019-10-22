@@ -20,15 +20,15 @@ namespace Fb.Marketing
                 var business = R.GetAllBusiness().ToList();
                 foreach (var r in business)
                     Console.WriteLine($"Name:{r.name}, id: {r.id}");
-                foreach (var rs in business.First(a => a.name == "OlgaBus21").GetAdAccounts(R))
+                foreach (var rs in business.First(a => a.name == "OlgaBus21").GetAdAccounts())
                     Console.WriteLine($"Name:{rs.name},id:{rs.id},account_status:{rs.account_status}");
-                foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPages(R))
+                foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPages())
                 {
 
                     Console.WriteLine($"Name:{rs.name},id:{rs.id}");
-                    Console.WriteLine(rs.LoadPageLogo(R));
+                    Console.WriteLine(rs.LoadPageLogo());
                 }
-                foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPixels(R))
+                foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPixels())
                     Console.WriteLine($"Name:{rs.name},id:{rs.id}");
             }
             
