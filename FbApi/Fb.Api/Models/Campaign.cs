@@ -22,22 +22,25 @@ namespace Fb.Api.Models
         public CAMPAIGN_STATUS status { get; set; }
         public  bool SetCampaignToFacebook()
         {
-            string request = business.account.baseUri +"act_"+adAccount.id + $"/campaigns/?name={name}&objective={objective}&status={status}&access_token=" + business.account.getToken();
+            string request = business.account.baseUri +"act_"+adAccount.id + this.ToString();
             return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings)) != "Error" ? true : false;
         }
         public bool UpdateCampaign()
         {
             return true;
         }
-       
+        public void SetStatus()
+        {
+
+        }
 
         #region ParamsNotEntity
 
         #endregion
-        //public  override string ToString()
-        //{
-
-        //}
+        public override string ToString()
+        {
+            return $"/campaigns/?{nameof(name)}={name}&{nameof(objective)}={objective}&{nameof(status)}={status}&access_token={business.account.getToken()}";
+        }
 
 
     }
