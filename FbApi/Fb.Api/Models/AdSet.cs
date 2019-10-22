@@ -9,6 +9,5 @@ namespace Fb.Api.Models
         public string id { get; set; }
         public double lifetime_budget { get; set; }
         public string namebudget { get; set; }
-        public string namebudget { get; set; }
     }
 }
