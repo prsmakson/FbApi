@@ -10,18 +10,12 @@ namespace Fb.Api.Helpers
 {
     static class RequestHelper
     {
-
-        static RequestHelper()
+        public static string SendRequest(string request, HttpWEbRequestSettings settings)
         {
-
-        }
-
-        public static string SendGetRequest(string request,string userAgent=null)
-        {
-
-            HttpWebRequest req =(HttpWebRequest)WebRequest.Create(request);
-            req.Method = "GET";
-            req.UserAgent = userAgent;
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(request);
+            req.Method = settings.requestMethod;
+            foreach (var header in settings.headers)
+                req.Headers.Add(header.Key, header.Value);
             var response = (HttpWebResponse)req.GetResponse();
             using (Stream stream = response.GetResponseStream())
             {
@@ -30,13 +24,14 @@ namespace Fb.Api.Helpers
                     return reader.ReadToEnd();
                 }
             }
-            // Above three lines can be replaced with new helper method below
-            // string responseBody = await client.GetStringAsync(uri);
         }
-        public static void SendPostRequest(string Request)
-        {
 
-        }
+
+    }
+    public class HttpWEbRequestSettings
+    {
+        public string requestMethod { get; set; }
+        public Dictionary<HttpRequestHeader, string> headers { get; set; } = new Dictionary<HttpRequestHeader, string>();
 
     }
 }

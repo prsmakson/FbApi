@@ -6,5 +6,6 @@ namespace Fb.Api.Models
 {
     public class Page : BaseModel
     {
+        public string access_token { get; set; }
     }
 }

@@ -23,7 +23,11 @@ namespace Fb.Marketing
                 foreach (var rs in business.First(a => a.name == "OlgaBus21").GetAdAccounts(R))
                     Console.WriteLine($"Name:{rs.name},id:{rs.id},account_status:{rs.account_status}");
                 foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPages(R))
+                {
+
                     Console.WriteLine($"Name:{rs.name},id:{rs.id}");
+                    Console.WriteLine(rs.LoadPageLogo(R));
+                }
                 foreach (var rs in business.First(a => a.name == "OlgaBus21").GetPixels(R))
                     Console.WriteLine($"Name:{rs.name},id:{rs.id}");
             }

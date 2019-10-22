@@ -69,7 +69,9 @@ namespace Fb.Api.Helpers
                     result.Add(new Page
                     {
                         id = (string)jPage.SelectToken("id"),
-                        name = (string)jPage.SelectToken("name")
+                        name = (string)jPage.SelectToken("name"),
+                        access_token=(string)jPage.SelectToken("access_token"),
+                        
                     });
 
                 return result;
@@ -123,6 +125,20 @@ namespace Fb.Api.Helpers
             {
                 Console.WriteLine(ex.Message);
                 return null;
+            }
+        }
+        public static bool ParseResultPostRequest(string jString)
+        {
+            try
+            {
+                JObject obj = JObject.Parse(jString);
+                var success = (string)obj["success"];
+                return bool.Parse(success);
+            }
+            catch(JsonException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
     }
