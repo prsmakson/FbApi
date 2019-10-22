@@ -10,6 +10,7 @@ namespace Fb.Api.Helpers
     static class ParseJsonResponseHelper
     {
 
+        #region GetObjects
         public static IEnumerable<Business> ParseBusiness(string jString)
         {
             try
@@ -30,6 +31,29 @@ namespace Fb.Api.Helpers
                 return null;
             }
 
+        }
+        public static IEnumerable<Campaign> ParseCampaigns(string jString)
+        {
+            try
+            {
+                JObject obj = JObject.Parse(jString);
+                var jCampaigns = obj["data"];
+                if (!jCampaigns.HasValues)
+                    return null;
+                var result = new List<Campaign>();
+                foreach (var jcampaign in jCampaigns)
+                    result.Add(new Campaign
+                    {
+                        name = (string)jcampaign.SelectToken("name"),
+                        id = (string)jcampaign.SelectToken("id"),
+                    });
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
         public static IEnumerable<AdAccount> ParseAdAccount(string jString)
         {
@@ -56,6 +80,7 @@ namespace Fb.Api.Helpers
             }
         }
 
+        
         public static IEnumerable<Page> ParsePages(string jString)
         {
             try
@@ -69,7 +94,9 @@ namespace Fb.Api.Helpers
                     result.Add(new Page
                     {
                         id = (string)jPage.SelectToken("id"),
-                        name = (string)jPage.SelectToken("name")
+                        name = (string)jPage.SelectToken("name"),
+                        access_token=(string)jPage.SelectToken("access_token"),
+                        
                     });
 
                 return result;
@@ -125,5 +152,37 @@ namespace Fb.Api.Helpers
                 return null;
             }
         }
+        #endregion
+        #region SetObjects
+        public static string ParseResultOrId(string jString)
+        {
+            try
+            {
+                JObject obj = JObject.Parse(jString);
+                return (string) obj.SelectToken("id");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return "Error";
+            }
+        }
+       
+        
+        public static bool ParseResultPostRequest(string jString)
+        {
+            try
+            {
+                JObject obj = JObject.Parse(jString);
+                var success = (string)obj["success"];
+                return bool.Parse(success);
+            }
+            catch(JsonException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+        #endregion
     }
 }

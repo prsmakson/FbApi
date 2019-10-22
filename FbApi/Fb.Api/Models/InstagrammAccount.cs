@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fb.Api.Models.Exstension
+namespace Fb.Api.Models
 {
-    public static class PostClassExstension
+    class InstagrammAccount:BaseModel
     {
     }
 }

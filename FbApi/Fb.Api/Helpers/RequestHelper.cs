@@ -10,25 +10,12 @@ namespace Fb.Api.Helpers
 {
     static class RequestHelper
     {
-
-        static RequestHelper()
+        private static string SendRequest(string request, HttpWEbRequestSettings settings)
         {
-
-        }
-
-        public static string SendGetRequest(string request, string userAgent = null)
-        {
-            return SendRequest(request, userAgent, "GET");
-        }
-        public static string SendPostRequest(string Request, string userAgent)
-        {
-            return SendRequest(Request, userAgent, "POST");
-        }
-        private static string SendRequest(string Request, string userAgent, string method)
-        {
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(Request);
-            req.Method = method;
-            req.UserAgent = userAgent;
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(request);
+            req.Method = settings.requestMethod;
+            foreach (var header in settings.headers)
+                req.Headers.Add(header.Key, header.Value);
             var response = (HttpWebResponse)req.GetResponse();
             using (Stream stream = response.GetResponseStream())
             {
@@ -38,6 +25,21 @@ namespace Fb.Api.Helpers
                 }
             }
         }
+        public static string SendPostRequest(string request, HttpWEbRequestSettings settings)
+        {
+            return SendRequest(request, settings);
+        }
+        public static string SendGetRequest(string request, HttpWEbRequestSettings settings)
+        {
+            return SendRequest(request, settings);
+        }
+
+    }
+   
+    public class HttpWEbRequestSettings
+    {
+        public string requestMethod { get; set; }
+        public Dictionary<HttpRequestHeader, string> headers { get; set; } = new Dictionary<HttpRequestHeader, string>();
 
     }
 }

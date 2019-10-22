@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    class Ads : BaseBusiness
+    public interface IBusiness
     {
+        public void SetBusiness(Business business);
     }
-}
+}   
