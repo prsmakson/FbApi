@@ -1,23 +1,44 @@
-﻿using System;
+﻿using Fb.Api.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Fb.Api.Models
 {
-    class Campaign : BaseBusiness
+    public class Campaign : BaseAdAccount
     {
+        public Campaign(Business business, AdAccount adAccount)
+        {
+            SetBusiness(business);
+            SetAdAccount(adAccount);
+        }
+        public Campaign()
+        {
 
+        }
         public string buying_type { get; set; } = "AUCTION"; // 
 
         public ENUM_OBJECTIVE objective { get; set; }
+        public CAMPAIGN_STATUS status { get; set; }
+        public  bool SetCampaignToFacebook()
+        {
+            string request = business.account.baseUri +"act_"+adAccount.id + $"/campaigns/?name={name}&objective={objective}&status={status}&access_token=" + business.account.getToken();
+            return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings)) != "Error" ? true : false;
+        }
+        public bool UpdateCampaign()
+        {
+            return true;
+        }
+       
+
         #region ParamsNotEntity
-        
+
         #endregion
         //public  override string ToString()
         //{
 
         //}
-        
+
 
     }
 

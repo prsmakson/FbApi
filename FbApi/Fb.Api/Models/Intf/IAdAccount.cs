@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    public interface IBusiness
+    public interface IAdAccount
     {
-        public void SetBusiness(Business business);
+        public void SetAdAccount(AdAccount adAccount);
     }
-}   
+}

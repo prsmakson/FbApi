@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    public interface IBusiness
+    class InstagrammAccount:BaseModel
     {
-        public void SetBusiness(Business business);
     }
-}   
+}
