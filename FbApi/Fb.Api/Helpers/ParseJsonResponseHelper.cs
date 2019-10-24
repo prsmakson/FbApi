@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Fb.Api.Models;
 using System.Linq;
+using Fb.Api.Models.Exstension;
 namespace Fb.Api.Helpers
 {
     static class ParseJsonResponseHelper
@@ -16,12 +17,16 @@ namespace Fb.Api.Helpers
             try
             {
                 JObject obj = JObject.Parse(jString);
-                var jBusinesss = obj["businesses"].SelectToken("data");
+                var jBusinesss = obj["data"];
                 if (!jBusinesss.HasValues)
                     return null;
                 var result = new List<Business>();
                 foreach (var jBusiness in jBusinesss)
-                    result.Add(new Business { name = (string)jBusiness.SelectToken("name"), id = (string)jBusiness.SelectToken("id") });
+                {
+                    var bu = new Business();
+                    result.Add(bu.GetValuesFromJson(jBusiness));
+                }
+                 
                 return result;
 
             }
@@ -42,11 +47,10 @@ namespace Fb.Api.Helpers
                     return null;
                 var result = new List<Campaign>();
                 foreach (var jcampaign in jCampaigns)
-                    result.Add(new Campaign
-                    {
-                        name = (string)jcampaign.SelectToken("name"),
-                        id = (string)jcampaign.SelectToken("id"),
-                    });
+                {
+                    var camp = new Campaign();
+                    result.Add(camp.GetValuesFromJson(jcampaign));
+                }
                 return result;
             }
             catch (Exception ex)
@@ -65,12 +69,10 @@ namespace Fb.Api.Helpers
                     return null;
                 var result = new List<AdAccount>();
                 foreach (var jAdAccount in jAdAccounts)
-                    result.Add(new AdAccount
-                    {
-                        name = (string)jAdAccount.SelectToken("name"),
-                        id = (string)jAdAccount.SelectToken("account_id"),
-                        account_status = (ACCOUNT_STATUS)Enum.Parse(typeof(ACCOUNT_STATUS), (string)jAdAccount.SelectToken("account_status"))
-                    });
+                {
+                    var acc = new AdAccount();
+                    result.Add(acc.GetValuesFromJson(jAdAccount));
+                }
                 return result;
             }
             catch (Exception ex)
@@ -91,13 +93,10 @@ namespace Fb.Api.Helpers
                     return null;
                 var result = new List<Page>();
                 foreach (var jPage in jPages)
-                    result.Add(new Page
-                    {
-                        id = (string)jPage.SelectToken("id"),
-                        name = (string)jPage.SelectToken("name"),
-                        access_token=(string)jPage.SelectToken("access_token"),
-                        
-                    });
+                {
+                    var page = new Page();
+                    result.Add(page.GetValuesFromJson(jPage));
+                }
 
                 return result;
             }
@@ -117,11 +116,10 @@ namespace Fb.Api.Helpers
                     return null;
                 var result = new List<Pixel>();
                 foreach (var jPixel in jPixels)
-                    result.Add(new Pixel
-                    {
-                        id = (string)jPixel.SelectToken("id"),
-                        name = (string)jPixel.SelectToken("name")
-                    });
+                {
+                    var pixel =  new Pixel();
+                    result.Add(pixel.GetValuesFromJson(jPixel));
+                }
 
                 return result;
 
