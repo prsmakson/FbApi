@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Fb.Api.Helpers;
 using System.Linq;
+using Fb.Api.Models.Exstension;
 namespace Fb.Api.Models
 {
     public class Account
@@ -42,7 +43,7 @@ namespace Fb.Api.Models
         }
         public IEnumerable<Business> GetAllBusiness()
         {
-            string request = baseUri + "me/" + "?fields=businesses&access_token=" + getToken();
+            string request = baseUri + "me/" + $"businesses/?fields={typeof(Business).GetRequestGetString()}&access_token=" + getToken();
             businesses = ParseJsonResponseHelper.ParseBusiness(RequestHelper.SendGetRequest(request, getSettings)).ToList();
             SetBusinessesAccount();
             return businesses;

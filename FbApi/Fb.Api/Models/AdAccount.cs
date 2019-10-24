@@ -8,8 +8,9 @@ namespace Fb.Api.Models
 {
     public class AdAccount : BaseBusiness
     {
+        public string adAccountId { get => "act_" + id; }
         [Display(Name = "account_status")]
-        public ACCOUNT_STATUS accountStatus { get; private set; }
+        public ACCOUNT_STATUS accountStatus { get; set; }// сделать private
         [Display(Name = "age")]
         public double age { get; set; }
         [Display(Name = "amount_spent")]
@@ -74,7 +75,7 @@ namespace Fb.Api.Models
         public IEnumerable<Campaign> campaigns { get; set; }
         public IEnumerable<Campaign> GetCampaigns()
         {
-            string request = business.account.baseUri + "act_" + id + $"/campaigns/?fields=name,id&access_token=" + business.account.getToken();
+            string request = business.account.baseUri + id + $"/campaigns/?fields=name,id&access_token=" + business.account.getToken();
             campaigns = ParseJsonResponseHelper.ParseCampaigns(RequestHelper.SendPostRequest(request, business.account.getSettings));
             SetCampaignBusinessAndAdAccount();
             return campaigns;

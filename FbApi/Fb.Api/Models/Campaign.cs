@@ -22,7 +22,7 @@ namespace Fb.Api.Models
         public CAMPAIGN_STATUS status { get; set; }
         public  bool SetCampaignToFacebook()
         {
-            string request = business.account.baseUri +"act_"+adAccount.id + this.ToString();
+            string request = business.account.baseUri+adAccount.id + this.ToString();
             return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings)) != "Error" ? true : false;
         }
         public bool UpdateCampaign()

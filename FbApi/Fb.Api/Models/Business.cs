@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-
+using Fb.Api.Models.Exstension;
 namespace Fb.Api.Models
 {
     public class Business : BaseModel
@@ -39,7 +39,7 @@ namespace Fb.Api.Models
         #region GetFunctions
         public IEnumerable<AdAccount> GetAdAccounts()
         {
-            string request = account.baseUri + id + "?fields=owned_ad_accounts{name,account_id,account_status}&access_token=" + account.getToken();
+            string request = account.baseUri + id + "?fields=owned_ad_accounts{"+typeof(AdAccount).GetRequestGetString()+"}&access_token=" + account.getToken();
             adAccounts = ParseJsonResponseHelper.ParseAdAccount(RequestHelper.SendGetRequest(request, account.getSettings));
             SetBusinessForAdAccount();
             return adAccounts;
@@ -50,7 +50,7 @@ namespace Fb.Api.Models
         }
         public IEnumerable<Page> GetPages()
         {
-            string request = account.baseUri + id + "?fields=owned_pages{name,id,access_token}&access_token=" + account.getToken();
+            string request = account.baseUri + id + "?fields=owned_pages{"+ typeof(Page).GetRequestGetString() + "}&access_token=" + account.getToken();
             pages = ParseJsonResponseHelper.ParsePages(RequestHelper.SendGetRequest(request, account.getSettings));
             SetBusinessForPages();
             return pages;
@@ -61,7 +61,7 @@ namespace Fb.Api.Models
         }
         public IEnumerable<Pixel> GetPixels()
         {
-            string request = account.baseUri + id + "?fields=owned_pixels{name,id}&access_token=" + account.getToken();
+            string request = account.baseUri + id + "?fields=owned_pixels{"+typeof(Pixel).GetRequestGetString()+"}&access_token=" + account.getToken();
             pixels = ParseJsonResponseHelper.ParsePixels(RequestHelper.SendGetRequest(request, account.getSettings));
             SetBusinessForPiexels();
             return pixels;
@@ -101,6 +101,12 @@ namespace Fb.Api.Models
                 pixel.SetBusiness(this);
         }
 
+        #region staticFunction
+        //public static Business GetBusiness(string id)
+        //{
+
+        //}
+        #endregion
 
     }
 
