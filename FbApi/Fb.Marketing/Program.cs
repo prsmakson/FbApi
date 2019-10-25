@@ -24,26 +24,26 @@ namespace Fb.Marketing
                 var b=business.First(r => r.name == "OlgaBus21");
 				//b.LoadReferencesObject();
 				b.GetAdAccounts();
-				b.GetPages();
-				b.GetPixels();
+				//b.GetPages();
+				//b.GetPixels();
 				time.Stop();
                 foreach (var r in business)
                     Console.WriteLine($"Name:{r.name}, id: {r.id}");
 				var AdAccounts = b.GetAdAccounts();
 				foreach (var rs in b.adAccounts)
 					Console.WriteLine($"Name:{rs.name},id:{rs.id},account_status:{rs.accountStatus}");
-				foreach (var rs in b.pages)
-				{
+				//foreach (var rs in b.pages)
+				//{
 
-					Console.WriteLine($"Name:{rs.name},id:{rs.id}");
-					//   Console.WriteLine(rs.LoadPageLogo());
-				}
-				foreach (var rs in b.pixels)
-					Console.WriteLine($"Name:{rs.name},id:{rs.id}");
+				//	Console.WriteLine($"Name:{rs.name},id:{rs.id}");
+				//	//   Console.WriteLine(rs.LoadPageLogo());
+				//}
+				//foreach (var rs in b.pixels)
+				//	Console.WriteLine($"Name:{rs.name},id:{rs.id}");
 
-				Console.WriteLine(time.Elapsed);
-				Campaign campaign = new Campaign(b,b.adAccounts.First(r=>r.name=="1")) { name = "VasyaFirstApp", objective = ENUM_OBJECTIVE.LINK_CLICKS, status = CAMPAIGN_STATUS.PAUSED };
-				Console.WriteLine(campaign.SetCampaignToFacebook());
+				//Console.WriteLine(time.Elapsed);
+				//Campaign campaign = new Campaign(b,b.adAccounts.First(r=>r.name=="1")) { name = "VasyaFirstApp", objective = ENUM_OBJECTIVE.LINK_CLICKS, status = CAMPAIGN_STATUS.PAUSED };
+				//Console.WriteLine(campaign.SetCampaignToFacebook());
 			}
 
             catch (WebException wex)

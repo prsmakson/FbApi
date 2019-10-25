@@ -4,70 +4,72 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Threading.Tasks;
 using Fb.Api.Helpers;
+using Newtonsoft.Json;
 namespace Fb.Api.Models
 {
+
     public class AdAccount : BaseBusiness
-    {
+    {	
         public string adAccountId { get => "act_" + id; }
-        [Display(Name = "account_status")]
+		[JsonProperty("account_status")]
         public ACCOUNT_STATUS accountStatus { get; set; }// сделать private
-        [Display(Name = "age")]
+        [JsonProperty("age")]
         public double age { get; set; }
-        [Display(Name = "amount_spent")]
+        [JsonProperty("amount_spent")]
         public string amountSpent { get; private set; }
-        [Display(Name = "balance")]
+        [JsonProperty("balance")]
         public string balance { get; private set; }
-        [Display(Name = "business_city")]
+        [JsonProperty("business_city")]
         public string businessCity { get; private set; }
-        [Display(Name = "business_country_code")]
+        [JsonProperty("business_country_code")]
         public string businessCountryCode { get; private set; }
-        [Display(Name = "capabilities")]
+        [JsonProperty("capabilities")]
         public IEnumerable<string> capabilities { get; private set; }
-        [Display(Name = "created_time")]
+        [JsonProperty("created_time")]
         public DateTime createdTime { get; private set; }
-        [Display(Name = "currency")]
+        [JsonProperty("currency")]
         public string currency { get; private set; }
-        [Display(Name = "disable_reason")]
+        [JsonProperty("disable_reason")]
         public int disableReason { get; private set; }
-        [Display(Name = "end_advertiser")]
+        [JsonProperty("end_advertiser")]
         public string endAdvertiser { get; private set; }
-        [Display(Name = "end_advertiser_name")]
+        [JsonProperty("end_advertiser_name")]
         public string endAdvertiserName { get; private set; }
-        [Display(Name = "funding_source")]
+        [JsonProperty("funding_source")]
         public string fundingSource { get; private set; }
-        [Display(Name = "funding_source_details")]
+        [JsonProperty("funding_source_details")]
         public fundingSourceDetails fundingSourceDetails { get; private set; }
-        [Display(Name = "has_migrated_permissions")]
+        [JsonProperty("has_migrated_permissions")]
         public bool hasMigratedPermissions { get; private set; }
-        [Display(Name = "is_attribution_spec_system_default")]
+        [JsonProperty("is_attribution_spec_system_default")]
         public bool IsAttributionSpecSystemDefault { get; private set; }
-        [Display(Name = "is_direct_deals_enabled")]
+        [JsonProperty("is_direct_deals_enabled")]
         public bool isDirectDealsEnabled { get; private set; }
-        [Display(Name = "is_in_3ds_authorization_enabled_market")]
+        [JsonProperty("is_in_3ds_authorization_enabled_market")]
         public bool isIn3dsAuthorizationEnabledMarket { get; private set; }
-        [Display(Name = "is_in_middle_of_local_entity_migration")]
+        [JsonProperty("is_in_middle_of_local_entity_migration")]
         public bool isInMiddleOfLocalEntityMigration { get; private set; }
-        [Display(Name = "is_notifications_enabled")]
+        [JsonProperty("is_notifications_enabled")]
         public bool isNotificationsEnabled { get; private set; }
-        [Display(Name = "is_prepay_account")]
+        [JsonProperty("is_prepay_account")]
         public bool isPrepayAccount { get; private set; }
-        [Display(Name = "is_tax_id_required")]
+        [JsonProperty("is_tax_id_required")]
         public bool IsTaxIdRequired { get; private set; }
-        [Display(Name = "min_campaign_group_spend_cap")]
+        [JsonProperty("min_campaign_group_spend_cap")]
         public string MinCampaignGroupSpendCap { get; private set; }
         [Display(Name= "min_daily_budget")]
         public string minDailyBudget { get; private set; }
-        [Display(Name = "offsite_pixels_tos_accepted")]
+        [JsonProperty("offsite_pixels_tos_accepted")]
         public bool OffsitePixelsTosAccepted { get; private set; }
-        [Display(Name = "owner")]
+        [JsonProperty("owner")]
         public string owner { get; private set; }
         [Display(Name= "timezone_id")]
         public string timezone_id { get; private set; }
-        [Display(Name = "timezone_name")]
+        [JsonProperty("timezone_name")]
         public string timezoneName { get; private set; }
-        [Display(Name = "timezone_offset_hours_utc")]
+        [JsonProperty("timezone_offset_hours_utc")]
         public string timezoneOffsetHoursUtc { get; private set; }
-        [Display(Name = "user_tasks")]
+        [JsonProperty("user_tasks")]
         public IEnumerable<string> userTasks { get; private set; }
         #region ParamsNotEntity
 
@@ -127,12 +129,11 @@ namespace Fb.Api.Models
         UNUSED_RESELLER_ACCOUNT,
         UNUSED_ACCOUNT,
     }
-    [Display(Name = "funding_source_details")]
     public class fundingSourceDetails
     {
-        [Display(Name = "id")]
+        [JsonProperty("id")]
         public string name { get; private set; }
-        [Display(Name = "display_string")]
+        [JsonProperty("display_string")]
         public string displayString { get; private set; }
     }
 

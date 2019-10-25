@@ -3,86 +3,87 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace Fb.Api.Models
 {
     public class Page : BaseBusiness
     {
-        [Display(Name = "access_token")]
+        [JsonProperty("access_token")]
         public string accessToken { get; private set; }
-        [Display(Name = "can_checkin")]
+        [JsonProperty("can_checkin")]
         public string canCheckin { get; private set; }
-        [Display(Name = "can_post")]
+        [JsonProperty("can_post")]
         public string canPost { get; private set; }
-        [Display(Name = "category")]
+        [JsonProperty("category")]
         public string category { get; private set; }
-        [Display(Name = "country_page_likes")]
+        [JsonProperty("country_page_likes")]
         public string countryPageLikes { get; private set; }
-        [Display(Name = "fan_count")]
+        [JsonProperty("fan_count")]
         public uint fanСount { get; private set; }
-        [Display(Name = "global_brand_page_name")]
+        [JsonProperty("global_brand_page_name")]
         public string global_brand_page_name { get; private set; }
-        [Display(Name = "has_added_app")]
+        [JsonProperty("has_added_app")]
         public bool hasAddedApp { get; private set; }
-        [Display(Name = "has_whatsapp_business_number")]
+        [JsonProperty("has_whatsapp_business_number")]
         public bool hasWhatsappBusinessNumber { get; private set; }
-        [Display(Name = "has_whatsapp_number")]
+        [JsonProperty("has_whatsapp_number")]
         public bool hasWhatsappNumber { get; private set; }
-        [Display(Name = "is_always_open")]
+        [JsonProperty("is_always_open")]
         public bool isAlwaysOpen { get; private set; }
-        [Display(Name = "is_chain")]
+        [JsonProperty("is_chain")]
         public bool isChain { get; private set; }
-        [Display(Name = "is_community_page")]
+        [JsonProperty("is_community_page")]
         public bool isCommunityPage { get; private set; }
-        [Display(Name = "is_eligible_for_branded_content")]
+        [JsonProperty("is_eligible_for_branded_content")]
         public bool isEligibleForBrandedContent { get; private set; }
-        [Display(Name = "is_messenger_bot_get_started_enabled")]
+        [JsonProperty("is_messenger_bot_get_started_enabled")]
         public bool isMessengerBotGetStartedEnabled { get; private set; }
-        [Display(Name = "is_messenger_platform_bot")]
+        [JsonProperty("is_messenger_platform_bot")]
         public bool isMessengerPlatformBot { get; private set; }
-        [Display(Name = "is_owned")]
+        [JsonProperty("is_owned")]
         public bool isOwned { get; private set; }
-        [Display(Name = "is_permanently_closed")]
+        [JsonProperty("is_permanently_closed")]
         public bool isPermanentlyClosed { get; private set; }
-        [Display(Name = "is_published")]
+        [JsonProperty("is_published")]
         public bool isPublished { get; private set; }
-        [Display(Name = "is_unclaimed")]
+        [JsonProperty("is_unclaimed")]
         public bool isUnclaimed { get; private set; }
-        [Display(Name = "is_webhooks_subscribed")]
+        [JsonProperty("is_webhooks_subscribed")]
         public bool isWebhooksSubscribed { get; private set; }
-        [Display(Name = "leadgen_has_crm_integration")]
+        [JsonProperty("leadgen_has_crm_integration")]
         public bool leadgenHasCrmIntegration { get; private set; }
-        [Display(Name = "leadgen_has_fat_ping_crm_integration")]
+        [JsonProperty("leadgen_has_fat_ping_crm_integration")]
         public bool leadgenHasFatPingCrmIntegration { get; private set; }
-        [Display(Name = "link")]
+        [JsonProperty("link")]
         public bool link { get; private set; }
-        [Display(Name = "messenger_ads_default_icebreakers")]
+        [JsonProperty("messenger_ads_default_icebreakers")]
         public List<string> messengerAdsDefaultIcebreakers { get; private set; }
-        [Display(Name = "page_token")]
+        [JsonProperty("page_token")]
         public string pageToken { get; private set; }
-        [Display(Name = "new_like_count")]
+        [JsonProperty("new_like_count")]
         public uint newLikeCount { get; private set; }
-        [Display(Name = "offer_eligible")]
+        [JsonProperty("offer_eligible")]
         public bool offerEligible { get; private set; }
-        [Display(Name = "promotion_eligible")]
+        [JsonProperty("promotion_eligible")]
         public bool promotionEligible { get; private set; }
-        [Display(Name = "rating_count")]
+        [JsonProperty("rating_count")]
         public uint ratingCount { get; private set; }
-        [Display(Name = "unread_message_count")]
+        [JsonProperty("unread_message_count")]
         public uint unreadMessageCount { get; private set; }
-        [Display(Name = "unread_notif_count")]
+        [JsonProperty("unread_notif_count")]
         public uint unreadNotifCount { get; private set; }
-        [Display(Name = "unseen_message_count")]
+        [JsonProperty("unseen_message_count")]
         public uint unseenMessageCount { get; private set; }
-        [Display(Name = "verification_status")]
+        [JsonProperty("verification_status")]
         public string verificationStatus { get; private set; }
-        [Display(Name = "voip_info")]
+        [JsonProperty("voip_info")]
         public VoipInfo voipInfo { get; private set; }
 
         public bool LoadPageLogo(string logoUri = "https://tursar.ru/image/img2095_0.jpg")
         {
 
-            string request = business.account.baseUri + id + "/picture/?picture=" + logoUri + "&access_token=" + access_token;
+            string request = business.account.baseUri + id + "/picture/?picture=" + logoUri + "&access_token=" + accessToken;
             var requestResult = RequestHelper.SendPostRequest(request, business.account.postSettings);
             return ParseJsonResponseHelper.ParseResultPostRequest(requestResult);
         }
@@ -91,30 +92,30 @@ namespace Fb.Api.Models
     }
     public class VoipInfo
     {
-        [Display(Name = "has_mobile_app")]
+        [JsonProperty("has_mobile_app")]
         public bool hasMobileApp { get; private set; }
-        [Display(Name = "has_permission")]
+        [JsonProperty("has_permission")]
         public bool hasPermission { get; private set; }
-        [Display(Name = "is_callable")]
+        [JsonProperty("is_callable")]
         public bool is_callable { get; private set; }
-        [Display(Name = "is_callable_webrtc")]
+        [JsonProperty("is_callable_webrtc")]
         public bool isCallableWebrtc { get; private set; }
-        [Display(Name = "is_pushable")]
+        [JsonProperty("is_pushable")]
         public bool isPushable { get; private set; }
-        [Display(Name = "reason_code")]
+        [JsonProperty("reason_code")]
         public uint reasonCode { get; private set; }
-        [Display(Name = "reason_description")]
+        [JsonProperty("reason_description")]
         public string reason_description { get; private set; }
     }
     //public class AppLinks
     //{
-    //    [Display(Name = "app_name")]
+    //    [JsonProperty("app_name")]
     //    public string appName { get; private set; }
-    //    [Display(Name = "package")]
+    //    [JsonProperty("package")]
     //    public string package { get; private set; }
-    //    [Display(Name = "url")]
+    //    [JsonProperty("url")]
     //    public string url { get; private set; }
-    //    [Display(Name = "app_store_id")]
+    //    [JsonProperty("app_store_id")]
     //    public string appStoreId { get; private set; }
     //}
 }
