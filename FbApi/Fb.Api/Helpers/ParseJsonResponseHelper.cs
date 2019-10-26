@@ -12,11 +12,11 @@ namespace Fb.Api.Helpers
 	{
 
 		#region GetObjects
-		public static IEnumerable<Business> ParseBusiness(string jString)
+		public static IEnumerable<Business> ParseBusiness(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var jBusinesss = obj["data"];
 				if (!jBusinesss.HasValues)
 					return null;
@@ -37,11 +37,11 @@ namespace Fb.Api.Helpers
 			}
 
 		}
-		public static IEnumerable<Campaign> ParseCampaigns(string jString)
+		public static IEnumerable<Campaign> ParseCampaigns(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var jCampaigns = obj["data"];
 				if (!jCampaigns.HasValues)
 					return null;
@@ -59,11 +59,11 @@ namespace Fb.Api.Helpers
 				return null;
 			}
 		}
-		public static IEnumerable<AdAccount> ParseAdAccount(string jString)
+		public static IEnumerable<AdAccount> ParseAdAccount(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var jAdAccounts = obj["owned_ad_accounts"].SelectToken("data");
 				if (!jAdAccounts.HasValues)
 					return null;
@@ -83,11 +83,11 @@ namespace Fb.Api.Helpers
 		}
 
 
-		public static IEnumerable<Page> ParsePages(string jString)
+		public static IEnumerable<Page> ParsePages(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var jPages = obj["owned_pages"].SelectToken("data");
 				if (!jPages.HasValues)
 					return null;
@@ -106,11 +106,11 @@ namespace Fb.Api.Helpers
 				return null;
 			}
 		}
-		public static IEnumerable<Pixel> ParsePixels(string jString)
+		public static IEnumerable<Pixel> ParsePixels(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var jPixels = obj["owned_pixels"].SelectToken("data");
 				if (!jPixels.HasValues)
 					return null;
@@ -131,11 +131,11 @@ namespace Fb.Api.Helpers
 			}
 
 		}
-		public static string GetEror(string jString)
+		public static string GetEror(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var jError = obj["error"];
 				if (jError == null)
 					return null;
@@ -152,11 +152,11 @@ namespace Fb.Api.Helpers
 		}
 		#endregion
 		#region SetObjects
-		public static string ParseResultOrId(string jString)
+		public static string ParseResultOrId(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				return (string)obj.SelectToken("id");
 			}
 			catch (Exception ex)
@@ -167,11 +167,11 @@ namespace Fb.Api.Helpers
 		}
 
 
-		public static bool ParseResultPostRequest(string jString)
+		public static bool ParseResultPostRequest(string jstring)
 		{
 			try
 			{
-				JObject obj = JObject.Parse(jString);
+				JObject obj = JObject.Parse(jstring);
 				var success = (string)obj["success"];
 				return bool.Parse(success);
 			}

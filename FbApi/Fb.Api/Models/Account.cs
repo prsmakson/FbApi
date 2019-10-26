@@ -43,7 +43,7 @@ namespace Fb.Api.Models
         }
         public IEnumerable<Business> GetAllBusiness()
         {
-            string request = baseUri + "me/" + $"businesses/?fields={typeof(Business).GetRequestGetString()}&access_token=" + getToken();
+            string request = baseUri + "me/" + $"businesses/?fields={typeof(Business).GetRequestGetstring()}&access_token=" + getToken();
             businesses = ParseJsonResponseHelper.ParseBusiness(RequestHelper.SendGetRequest(request, getSettings)).ToList();
             SetBusinessesAccount();
             return businesses;

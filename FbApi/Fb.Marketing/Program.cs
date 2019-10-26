@@ -27,11 +27,23 @@ namespace Fb.Marketing
 				//b.GetPages();
 				//b.GetPixels();
 				time.Stop();
-                foreach (var r in business)
-                    Console.WriteLine($"Name:{r.name}, id: {r.id}");
+				foreach (var r in business)
+				{
+					
+					var prop =typeof(Business).GetProperties().Where(r => r.PropertyType == typeof(string) || r.PropertyType == typeof(bool));
+					foreach(var p in prop)
+						Console.WriteLine($"Name:{p.Name}, value: {p.GetValue(r)}");
+					Console.WriteLine();
+
+				}
 				var AdAccounts = b.GetAdAccounts();
 				foreach (var rs in b.adAccounts)
-					Console.WriteLine($"Name:{rs.name},id:{rs.id},account_status:{rs.accountStatus}");
+				{
+					var prop = typeof(AdAccount).GetProperties().Where(r => r.PropertyType == typeof(string) || r.PropertyType == typeof(bool));
+					foreach (var p in prop)
+						Console.WriteLine($"Name:{p.Name}, value: {p.GetValue(rs)}");
+					Console.WriteLine();
+				}
 				//foreach (var rs in b.pages)
 				//{
 

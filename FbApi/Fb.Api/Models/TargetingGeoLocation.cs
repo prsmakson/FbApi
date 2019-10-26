@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    public class AdLabel
-    {
-    }
+	public class TargetingGeoLocation
+	{
+	}
 }

@@ -134,7 +134,7 @@ namespace Fb.Api.Models
         [JsonProperty("id")]
         public string name { get; private set; }
         [JsonProperty("display_string")]
-        public string displayString { get; private set; }
+        public string displaystring { get; private set; }
     }
 
     public enum FUNDING_SOURCE_TYPE : int

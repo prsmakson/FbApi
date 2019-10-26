@@ -15,7 +15,7 @@ namespace Fb.Api.Models.Exstension
 			return (t.GetProperty(paramName).GetCustomAttribute(typeof(JsonPropertyAttribute), false) as JsonPropertyAttribute).PropertyName;
 		}
 	
-		public static string GetRequestGetString(this Type t)
+		public static string GetRequestGetstring(this Type t)
 		{
 
 			return (string.Join(","
@@ -27,7 +27,7 @@ namespace Fb.Api.Models.Exstension
 				.Select(r => GetDisplayName(t, r.Name)))).Trim(',');
 
 		}
-		private static IEnumerable<string> GetStrings(JToken jToken)
+		private static IEnumerable<string> Getstrings(JToken jToken)
 		{ var list = new List<string>();
 			foreach (var j in jToken)
 				list.Add((string)j);
@@ -45,7 +45,7 @@ namespace Fb.Api.Models.Exstension
 		//		{
 		//			var type = prop.PropertyType;
 		//			if (typeof(IEnumerable<string>) == prop.PropertyType)
-		//				prop.SetValue(obj, GetStrings(jtoken.SelectToken(displayName)));
+		//				prop.SetValue(obj, Getstrings(jtoken.SelectToken(displayName)));
 		//			else
 		//				prop.SetValue(obj, GetValuesFromJson(prop.PropertyType, jtoken.SelectToken(displayName)) )	 ;
 		//			continue;
@@ -56,7 +56,7 @@ namespace Fb.Api.Models.Exstension
 		//	return (T)obj;
 		//}
 
-		public static string GetRequestPostString(this Type t, object obj)
+		public static string GetRequestPoststring(this Type t, object obj)
 		{
 			return "";
 		}
