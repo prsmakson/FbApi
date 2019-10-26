@@ -6,9 +6,12 @@ using Newtonsoft.Json;
 
 namespace Fb.Api.Models
 {
-	public class AdSet : BaseAdAccount, ICampaign
+	public class AdSet : IAdAccount, IBusiness, INameID
 	{
-
+		[JsonProperty("name")]
+		public string name { get; set; } = null;
+		[JsonProperty("id")]
+		public string id { get; set; } = null;
 		[JsonProperty("adlabels")]
 		public List<AdLabel> adlabels { get; private set; } = null;
 		[JsonProperty("adset_schedule")]
@@ -20,7 +23,7 @@ namespace Fb.Api.Models
 		[JsonProperty("bid_adjustments")]
 		public AdBidAdjustments bidAdjustments { get; private set; } = null;
 		[JsonProperty("bid_amount")]
-		public long? bidAmount { get; private set; } = null;
+		public long? bidAmount { get; set; } = null;
 		[JsonProperty("bid_constraints")]
 		public AdCampaignBidConstraint bidConstraints { get; private set; } = null;
 		[JsonProperty("bid_info")]
@@ -33,7 +36,7 @@ namespace Fb.Api.Models
 		public string budgetRemaining { get; private set; } = null;
 
 		[JsonProperty("campaign_id")]
-		public string campaignId { get; private set; } = null;
+		public string campaignId { get; set; } = null;
 		[JsonProperty("configured_status")]
 		public CONFIGURED_STATUS? configuredStatus { get; private set; } = null;
 		[JsonProperty("created_time")]
@@ -41,7 +44,7 @@ namespace Fb.Api.Models
 		[JsonProperty("creative_sequence")]
 		public List<string> creativeSequence { get; private set; } = null;
 		[JsonProperty("daily_budget")]
-		public string dailyBudget { get; private set; } = null;
+		public string dailyBudget { get;set; } = null;
 		[JsonProperty("daily_min_spend_target")]
 		public string dailyMinSpendTarget { get; private set; } = null;
 		[JsonProperty("daily_spend_cap")]
@@ -71,7 +74,7 @@ namespace Fb.Api.Models
 		[JsonProperty("lifetime_spend_cap")]
 		public string lifetimeSpendCap { get; private set; } = null;
 		[JsonProperty("optimization_goal")]
-		public OPTIMIZATION_GOAL? mOptimizationGoal { get; private set; } = null;
+		public OPTIMIZATION_GOAL? optimizationGoal { get;set; } = null;
 		[JsonProperty("optimization_sub_event")]
 		public string optimizationSubEvent { get; private set; } = null;
 		[JsonProperty("pacing_type")]
@@ -93,9 +96,9 @@ namespace Fb.Api.Models
 		[JsonProperty("start_time")]
 		public DateTime? startTime { get; private set; } = null;
 		[JsonProperty("status")]
-		public CONFIGURED_STATUS? status { get; private set; } = null;
+		public CONFIGURED_STATUS? status { get; set; } = null;
 		[JsonProperty("targeting")]
-		public Targeting targeting { get; private set; } = null;
+		public Targeting targeting { get;  set; } = null;
 		[JsonProperty("time_based_ad_rotation_id_blocks")]
 		public List<List<long>> timeBasedAdRotationIdBlocks { get; private set; } = null;
 		[JsonProperty("time_based_ad_rotation_intervals")]
@@ -107,13 +110,29 @@ namespace Fb.Api.Models
 		#region ParamsNotEntity
 		[JsonProperty("campaign")]
 		public Campaign campaign { get; private set; } = null;
-
+		[JsonProperty("account_id")]
+		public string accountId { get; private set; }
+		public AdAccount adAccount { get; private set; }
+		public Business business { get; private set; }
+		public void SetAdAccount(AdAccount adAccount)
+		{
+			this.adAccount = adAccount;
+		}
+		public void SetBusiness(Business business)
+		{
+			this.business = business;
+		}
 		public void SetCampaign(Campaign campaign)
 		{
 			this.campaign = campaign;
 			campaignId = campaign.id;
 		}
+		public string SetAdSetToFacebook()
+		{
+			return null;
+		}
 		#endregion
+		#region enums
 		public enum ENUM_EFFECTIVE_STATUS : int
 		{
 			ACTIVE,
@@ -124,62 +143,65 @@ namespace Fb.Api.Models
 			PAUSED,
 			WITH_ISSUES,
 		}
-	}
-
-	public enum CONFIGURED_STATUS
-	{
-		ACTIVE,
-		PAUSED,
-		DELETED,
-		ARCHIVED
-	}
-	public enum BID_STRATEGY : int
-	{
-		LOWEST_COST_WITHOUT_CAP,
-		LOWEST_COST_WITH_BID_CAP,
-		TARGET_COST
-	}
+		public enum CONFIGURED_STATUS
+		{
+			ACTIVE,
+			PAUSED,
+			DELETED,
+			ARCHIVED
+		}
+		public enum BID_STRATEGY : int
+		{
+			LOWEST_COST_WITHOUT_CAP,
+			LOWEST_COST_WITH_BID_CAP,
+			TARGET_COST
+		}
 
 
-	public enum OPTIMIZATION_GOAL : int
-	{
-		NONE,
-		APP_INSTALLS,
-		BRAND_AWARENESS,
-		AD_RECALL_LIFT,
-		CLICKS,
-		ENGAGED_USERS,
-		EVENT_RESPONSES,
-		IMPRESSIONS,
-		LEAD_GENERATION,
-		LINK_CLICKS,
-		OFFER_CLAIMS,
-		OFFSITE_CONVERSIONS,
-		PAGE_ENGAGEMENT,
-		PAGE_LIKES,
-		POST_ENGAGEMENT,
-		REACH,
-		OCIAL_IMPRESSIONS,
-		VIDEO_VIEWS,
-		APP_DOWNLOADS,
-		TWO_SECOND_CONTINUOUS_VIDEO_VIEWS,
-		LANDING_PAGE_VIEWS,
-		VALUE,
-		THRUPLAY,
-		REPLIES,
-		DERIVED_EVENTS
+		public enum OPTIMIZATION_GOAL : int
+		{
+			NONE,
+			APP_INSTALLS,
+			BRAND_AWARENESS,
+			AD_RECALL_LIFT,
+			CLICKS,
+			ENGAGED_USERS,
+			EVENT_RESPONSES,
+			IMPRESSIONS,
+			LEAD_GENERATION,
+			LINK_CLICKS,
+			OFFER_CLAIMS,
+			OFFSITE_CONVERSIONS,
+			PAGE_ENGAGEMENT,
+			PAGE_LIKES,
+			POST_ENGAGEMENT,
+			REACH,
+			OCIAL_IMPRESSIONS,
+			VIDEO_VIEWS,
+			APP_DOWNLOADS,
+			TWO_SECOND_CONTINUOUS_VIDEO_VIEWS,
+			LANDING_PAGE_VIEWS,
+			VALUE,
+			THRUPLAY,
+			REPLIES,
+			DERIVED_EVENTS
+		}
+		public enum BILLING_EVENT
+		{
+			APP_INSTALLS,
+			CLICKS,
+			IMPRESSIONS,
+			LINK_CLICKS,
+			NONE,
+			OFFER_CLAIMS,
+			PAGE_LIKES,
+			POST_ENGAGEMENT,
+			VIDEO_VIEWS,
+			THRUPLAY
+		}
+		#endregion
+
 	}
-	public enum BILLING_EVENT
-	{
-		APP_INSTALLS,
-		CLICKS,
-		IMPRESSIONS,
-		LINK_CLICKS,
-		NONE,
-		OFFER_CLAIMS,
-		PAGE_LIKES,
-		POST_ENGAGEMENT,
-		VIDEO_VIEWS,
-		THRUPLAY
-	}
+
+
 }

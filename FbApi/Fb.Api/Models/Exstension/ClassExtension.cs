@@ -14,21 +14,51 @@ namespace Fb.Api.Models.Exstension
 		{
 			return (t.GetProperty(paramName).GetCustomAttribute(typeof(JsonPropertyAttribute), false) as JsonPropertyAttribute).PropertyName;
 		}
-	
+
 		public static string GetRequestGetstring(this Type t)
 		{
 
 			return (string.Join(","
 				, t.GetProperties()
-				.Where(prop =>( prop.PropertyType == typeof(string)
+				.Where(prop => (prop.PropertyType == typeof(string)
 							|| (prop.PropertyType == typeof(IEnumerable<string>)
 							|| prop.PropertyType.IsPrimitive
-							|| prop.PropertyType.IsValueType))&& prop.GetCustomAttribute(typeof(JsonPropertyAttribute), false) != null)
+							|| prop.PropertyType.IsValueType)) && prop.GetCustomAttribute(typeof(JsonPropertyAttribute), false) != null)
 				.Select(r => GetDisplayName(t, r.Name)))).Trim(',');
 
 		}
+		public static string GetRequestPostString(this Type t, object obj)
+		{
+			string result = "";
+			var props = t.GetProperties().Where(prop => prop.GetCustomAttribute(typeof(JsonPropertyAttribute), false) != null);
+			foreach (var p in props)
+			{
+				if (p.PropertyType == typeof(string) || p.PropertyType == typeof(bool?) || p.PropertyType == typeof(long?) || p.PropertyType.IsPrimitive || p.PropertyType.IsEnum)
+				{
+					var val = p.GetValue(obj);
+						if (val != null)
+						result = p.Name + "=" + val + "&";
+				}
+				if (p.PropertyType == typeof(IEnumerable<string>))
+				{
+					var val = p.GetValue(obj);
+					if (val != null)
+						result += p.Name + "=" + string.Join(",", val)+"&";
+				}
+				if (!p.PropertyType.IsPrimitive && !(p.PropertyType == typeof(string)) && !(p.PropertyType == typeof(bool?)) && !(p.PropertyType == typeof(long?)) && !(p.PropertyType == typeof(IEnumerable<string>)))
+				{
+					var val = p.GetValue(obj);
+					if (val != null) {
+						result += p.Name + "=" + JsonConvert.SerializeObject(val, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }) + "%";
+							}
+
+				}
+			}
+			return result.Trim('&');
+		}
 		private static IEnumerable<string> Getstrings(JToken jToken)
-		{ var list = new List<string>();
+		{
+			var list = new List<string>();
 			foreach (var j in jToken)
 				list.Add((string)j);
 			return list;
@@ -56,10 +86,7 @@ namespace Fb.Api.Models.Exstension
 		//	return (T)obj;
 		//}
 
-		public static string GetRequestPoststring(this Type t, object obj)
-		{
-			return "";
-		}
+
 
 
 	}

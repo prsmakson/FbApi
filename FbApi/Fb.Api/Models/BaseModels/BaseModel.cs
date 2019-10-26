@@ -10,9 +10,9 @@ namespace Fb.Api.Models
     public abstract class BaseModel : IReferences
     {
         [JsonProperty("name")]
-        public string name { get; private set; } = null;
+        public virtual string name { get; private set; } = null;
 		[JsonProperty("id")]
-        public string id { get; private set; } = null;
+        public  virtual string id { get; private set; } = null;
 
 		public virtual void LoadReferencesObject() { }
     }

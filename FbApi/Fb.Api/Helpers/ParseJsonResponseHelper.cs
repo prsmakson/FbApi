@@ -131,6 +131,31 @@ namespace Fb.Api.Helpers
 			}
 
 		}
+		public static IEnumerable<AdSet> ParseAdsets(string jstring)
+		{
+			try
+			{
+				JObject obj = JObject.Parse(jstring);
+				var jAdSets = obj["adsets"].SelectToken("data");
+				if (!jAdSets.HasValues)
+					return null;
+				var result = new List<AdSet>();
+				foreach (var jAdset in jAdSets)
+				{
+					var pixel = new AdSet();
+					result.Add(JsonConvert.DeserializeObject<AdSet>(jAdset.ToString()));
+				}
+
+				return result;
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				return null;
+			}
+
+		}
 		public static string GetEror(string jstring)
 		{
 			try
@@ -162,7 +187,7 @@ namespace Fb.Api.Helpers
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return "Error";
+				return null;
 			}
 		}
 

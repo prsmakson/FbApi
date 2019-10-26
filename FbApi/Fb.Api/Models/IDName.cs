@@ -8,8 +8,8 @@ namespace Fb.Api.Models
 	public class IDName
 	{
 		[JsonProperty("id")]
-		public string mId = null;
+		public string id= null;
 		[JsonProperty("name")]
-		public string mName = null;
+		public string name = null;
 	}
 }

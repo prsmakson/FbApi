@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-	class Ad : BaseAdAccount
+	class Ad : IAdAccount, IBusiness
 	{
 
 		[JsonProperty("ad_review_feedback")]
@@ -114,6 +114,20 @@ namespace Fb.Api.Models
 			PAUSED
 
 
+		}
+		#endregion
+		#region NotEntity
+		[JsonProperty("account_id")]
+		public string accountId { get; private set; }
+		public AdAccount adAccount { get; private set; }
+		public Business business { get; private set; }
+		public void SetAdAccount(AdAccount adAccount)
+		{
+			this.adAccount = adAccount;
+		}
+		public void SetBusiness(Business business)
+		{
+			this.business = business;
 		}
 		#endregion
 	}

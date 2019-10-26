@@ -4,18 +4,23 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using Fb.Api.Models.Exstension;
+using Fb.Api.Models.Intf;
 
 namespace Fb.Api.Models
 {
-	public class Campaign : BaseAdAccount
+	public class Campaign : IAdAccount, IBusiness, INameID
 	{
-
+		[JsonProperty("name")]
+		public string name { get; set; } = null;
+		[JsonProperty("id")]
+		public string id { get; set; } = null;
 		[JsonProperty("adlabels")]
 		public List<AdLabel> mAdlabels { get; private set; } = null;
 		[JsonProperty("bid_strategy")]
-		public EENUM_BID_STRATEGY? mBidStrategy { get; private set; } = null;
+		public EENUM_BID_STRATEGY? mBidStrategy { get; set; } = null;
 		[JsonProperty("boosted_object_id")]
-		public string mBoostedObjectId { get; private set; } = null;
+		public string boostedObjectId { get; private set; } = null;
 		[JsonProperty("brand_lift_studies")]
 		public List<AdStudy> brandLiftStudies { get; private set; } = null; //-- не загружается
 		[JsonProperty("budget_rebalance_flag")]
@@ -23,34 +28,34 @@ namespace Fb.Api.Models
 		[JsonProperty("budget_remaining")]
 		public string budgetRemaining { get; private set; } = null;
 		[JsonProperty("buying_type")]
-		public string buyingType { get; private set; } = null;
+		public string buyingType { get; set; } = null;
 		[JsonProperty("can_create_brand_lift_study")]
 		public bool? canCreateBrandLiftStudy { get; private set; } = null;
 		[JsonProperty("can_use_spend_cap")]
 		public bool? canUseSpendCap { get; private set; } = null;
 		[JsonProperty("configured_status")]
-		public CAMPAIGN_STATUS? configuredStatus { get; private set; } = null;
+		public CAMPAIGN_STATUS? configuredStatus { get;  set; } = null;
 		[JsonProperty("created_time")]
 		public DateTime? сreatedTime { get; private set; } = null;
 		[JsonProperty("daily_budget")]
-		public string dailyBudget { get; private set; } = null; //-- загружается
+		public string dailyBudget { get;  set; } = null; //-- загружается
 		[JsonProperty("effective_status")]
-		public ENUM_EFFECTIVE_STATUS? effectiveStatus { get; private set; } = null;
+		public ENUM_EFFECTIVE_STATUS? effectiveStatus { get; set; } = null;
 		[JsonProperty("issues_info")]
-		public List<AdCampaignIssuesInfo> mIssuesInfo { get; private set; } = null;
+		public List<AdCampaignIssuesInfo> issuesInfo { get; private set; } = null;
 		[JsonProperty("last_budget_toggling_time")]
 		public string lastBudgetTogglingTime { get; private set; } = null;// -- не загружается
 		[JsonProperty("lifetime_budget")]
 		public string lifetimeBudget { get; private set; } = null; //- не загружается
 
 		[JsonProperty("objective")]
-		public string objective { get; private set; } = null;
+		public ENUM_OBJECTIVE? objective { get; set; } = null;
 		[JsonProperty("pacing_type")]
 		public List<string> зacingType { get; private set; } = null; //-- не загружается
-		//[JsonProperty("promoted_object")]
-		//public AdPromotedObject mPromotedObject { get; private set; } = null;
-		//[JsonProperty("recommendations")]
-		//public List<AdRecommendation> mRecommendations { get; private set; } = null;
+		[JsonProperty("promoted_object")]
+		public AdPromotedObject mPromotedObject { get; set; } = null;
+		[JsonProperty("recommendations")]
+		public List<AdRecommendation> recommendations { get; private set; } = null;
 		[JsonProperty("source_campaign")]
 		public Campaign sourceCampaign { get; private set; } = null;// -- не загружается
 		[JsonProperty("source_campaign_id")]
@@ -58,14 +63,14 @@ namespace Fb.Api.Models
 		[JsonProperty("special_ad_category")]
 		public string specialAdCategory { get; private set; } = null;
 		[JsonProperty("spend_cap")]
-		public string mSpendCap { get; private set; } = null; //-- не загружается
+		public string spendCap { get; private set; } = null; //-- не загружается
 		[JsonProperty("start_time")]
 		public string startTime { get; private set; } = null;
 		[JsonProperty("status")]
-		public CAMPAIGN_STATUS? status { get; private set; } = null;
+		public CAMPAIGN_STATUS? status { get; set; } = null;
 
 		[JsonProperty("stop_time")]
-		public string mStopTime { get; private set; } = null; //-- не загружается
+		public string stopTime { get; private set; } = null; //-- не загружается
 		[JsonProperty("topline_id")]
 		public string toplineId { get; private set; } = null;
 		[JsonProperty("updated_time")]
@@ -80,11 +85,15 @@ namespace Fb.Api.Models
 
 		}
 		//public string buying_type { get => "AUCTION"; set { buying_type = value; } }   // 
-
-		public bool? SetCampaignToFacebook()
+		public IEnumerable<AdSet> GetAdSets()
 		{
-			string request = business.account.baseUri + adAccount.id + this.ToString();
-			return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings)) != "Error" ? true : false;
+			string request = business.account.baseUri + id + "?fields=adsets{" + typeof(AdSet).GetRequestGetstring() + "}&access_token=" + business.account.getToken();
+			return ParseJsonResponseHelper.ParseAdsets(RequestHelper.SendGetRequest(request, business.account.getSettings));
+		}
+		public string SetCampaignToFacebook()
+		{
+			string request = business.account.baseUri + adAccount.id + $"/campaigns/?{typeof(Campaign).GetRequestPostString(this)}" + $"&access_token={business.account.getToken()}";
+			return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings));
 		}
 		public bool? UpdateCampaign()
 		{
@@ -96,7 +105,18 @@ namespace Fb.Api.Models
 		}
 
 		#region ParamsNotEntity
-
+		[JsonProperty("account_id")]
+		public string accountId { get; private set; }
+		public AdAccount adAccount { get; private set; }
+		public Business business { get; private set; }
+		public void SetAdAccount(AdAccount adAccount)
+		{
+			this.adAccount = adAccount;
+		}
+		public void SetBusiness(Business business)
+		{
+			this.business = business;
+		}
 		#endregion
 		#region Enums
 		public enum ENUM_EFFECTIVE_STATUS : int
