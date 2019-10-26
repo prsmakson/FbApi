@@ -3,71 +3,73 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+
 namespace Fb.Api.Models
 {
 	public class Campaign : BaseAdAccount
 	{
 
 		[JsonProperty("adlabels")]
-		private List<AdLabel> mAdlabels = null;
+		public List<AdLabel> mAdlabels { get; private set; } = null;
 		[JsonProperty("bid_strategy")]
-		private EENUM_BID_STRATEGY? mBidStrategy = null;
+		public EENUM_BID_STRATEGY? mBidStrategy { get; private set; } = null;
 		[JsonProperty("boosted_object_id")]
-		private string mBoostedObjectId = null;
+		public string mBoostedObjectId { get; private set; } = null;
 		[JsonProperty("brand_lift_studies")]
-		private List<AdStudy> mBrandLiftStudies = null;
+		public List<AdStudy> brandLiftStudies { get; private set; } = null; //-- не загружается
 		[JsonProperty("budget_rebalance_flag")]
-		private bool? mBudgetRebalanceFlag = null;
+		public bool? budgetRebalanceFlag { get; private set; } = null;
 		[JsonProperty("budget_remaining")]
-		private string mBudgetRemaining = null;
+		public string budgetRemaining { get; private set; } = null;
 		[JsonProperty("buying_type")]
-		private string mBuyingType = null;
+		public string buyingType { get; private set; } = null;
 		[JsonProperty("can_create_brand_lift_study")]
-		private bool? mCanCreateBrandLiftStudy = null;
+		public bool? canCreateBrandLiftStudy { get; private set; } = null;
 		[JsonProperty("can_use_spend_cap")]
-		private bool? mCanUseSpendCap = null;
+		public bool? canUseSpendCap { get; private set; } = null;
 		[JsonProperty("configured_status")]
-		private CAMPAIGN_STATUS? mConfiguredStatus = null;
+		public CAMPAIGN_STATUS? configuredStatus { get; private set; } = null;
 		[JsonProperty("created_time")]
-		private string mCreatedTime = null;
+		public DateTime? сreatedTime { get; private set; } = null;
 		[JsonProperty("daily_budget")]
-		private string mDailyBudget = null;
+		public string dailyBudget { get; private set; } = null; //-- загружается
 		[JsonProperty("effective_status")]
-		private ENUM_EFFECTIVE_STATUS? mEffectiveStatus = null;
-		//[JsonProperty("issues_info")]
-		//private List<AdCampaignIssuesInfo> mIssuesInfo = null;
+		public ENUM_EFFECTIVE_STATUS? effectiveStatus { get; private set; } = null;
+		[JsonProperty("issues_info")]
+		public List<AdCampaignIssuesInfo> mIssuesInfo { get; private set; } = null;
 		[JsonProperty("last_budget_toggling_time")]
-		private string mLastBudgetTogglingTime = null;
+		public string lastBudgetTogglingTime { get; private set; } = null;// -- не загружается
 		[JsonProperty("lifetime_budget")]
-		private string mLifetimeBudget = null;
-		[JsonProperty("name")]
-		private string mName = null;
+		public string lifetimeBudget { get; private set; } = null; //- не загружается
+
 		[JsonProperty("objective")]
-		private string mObjective = null;
+		public string objective { get; private set; } = null;
 		[JsonProperty("pacing_type")]
-		private List<string> mPacingType = null;
+		public List<string> зacingType { get; private set; } = null; //-- не загружается
 		//[JsonProperty("promoted_object")]
-		//private AdPromotedObject mPromotedObject = null;
+		//public AdPromotedObject mPromotedObject { get; private set; } = null;
 		//[JsonProperty("recommendations")]
-		//private List<AdRecommendation> mRecommendations = null;
+		//public List<AdRecommendation> mRecommendations { get; private set; } = null;
 		[JsonProperty("source_campaign")]
-		private Campaign mSourceCampaign = null;
+		public Campaign sourceCampaign { get; private set; } = null;// -- не загружается
 		[JsonProperty("source_campaign_id")]
-		private string mSourceCampaignId = null;
+		public string sourceCampaignId { get; private set; } = null;
 		[JsonProperty("special_ad_category")]
-		private string mSpecialAdCategory = null;
+		public string specialAdCategory { get; private set; } = null;
 		[JsonProperty("spend_cap")]
-		private string mSpendCap = null;
+		public string mSpendCap { get; private set; } = null; //-- не загружается
 		[JsonProperty("start_time")]
-		private string mStartTime = null;
+		public string startTime { get; private set; } = null;
 		[JsonProperty("status")]
-		private CAMPAIGN_STATUS? mStatus = null;
+		public CAMPAIGN_STATUS? status { get; private set; } = null;
+
 		[JsonProperty("stop_time")]
-		private string mStopTime = null;
+		public string mStopTime { get; private set; } = null; //-- не загружается
 		[JsonProperty("topline_id")]
-		private string mToplineId = null;
+		public string toplineId { get; private set; } = null;
 		[JsonProperty("updated_time")]
-		private string mUpdatedTime = null;
+		public string updatedTime { get; private set; } = null;
 		public Campaign(Business business, AdAccount adAccount)
 		{
 			SetBusiness(business);
@@ -77,10 +79,8 @@ namespace Fb.Api.Models
 		{
 
 		}
-		public string buying_type { get; set; } = "AUCTION"; // 
+		//public string buying_type { get => "AUCTION"; set { buying_type = value; } }   // 
 
-		public ENUM_OBJECTIVE objective { get; set; }
-		public CAMPAIGN_STATUS status { get; set; }
 		public bool? SetCampaignToFacebook()
 		{
 			string request = business.account.baseUri + adAccount.id + this.ToString();
@@ -98,53 +98,52 @@ namespace Fb.Api.Models
 		#region ParamsNotEntity
 
 		#endregion
-		public override string ToString()
+		#region Enums
+		public enum ENUM_EFFECTIVE_STATUS : int
 		{
-			return $"/campaigns/?{nameof(name)}={name}&{nameof(objective)}={objective}&{nameof(status)}={status}&access_token={business.account.getToken()}";
+			ACTIVE,
+			ARCHIVED,
+			DELETED,
+			IN_PROCESS,
+			PAUSED,
+			WITH_ISSUES
 		}
+		public enum ENUM_OBJECTIVE : int
+		{
+			APP_INSTALLS,
+			BRAND_AWARENESS,
+			CONVERSIONS,
+			EVENT_RESPONSES,
+			LEAD_GENERATION,
+			LINK_CLICKS,
+			LOCAL_AWARENESS,
+			MESSAGES,
+			OFFER_CLAIMS,
+			PAGE_LIKES,
+			POST_ENGAGEMENT,
+			PRODUCT_CATALOG_SALES,
+			REACH,
+			VIDEO_VIEWS
+		}
+		public enum CAMPAIGN_STATUS : int
+		{
+			ACTIVE,
+			PAUSED,
+			DELETED,
+			ARCHIVED
+		}
+		public enum EENUM_BID_STRATEGY : int
+		{
+			VOWEST_COST_WITHOUT_CAP,
+			LOWEST_COST_WITH_BID_CAP,
+			TARGET_COST
+		}
+		#endregion
 
 
 	}
 
-	public enum ENUM_EFFECTIVE_STATUS : int
-	{
-		ACTIVE,
-		ARCHIVED,
-		DELETED,
-		IN_PROCESS,
-		PAUSED,
-		WITH_ISSUES
-	}
-	public enum ENUM_OBJECTIVE : int
-	{
-		APP_INSTALLS,
-		BRAND_AWARENESS,
-		CONVERSIONS,
-		EVENT_RESPONSES,
-		LEAD_GENERATION,
-		LINK_CLICKS,
-		LOCAL_AWARENESS,
-		MESSAGES,
-		OFFER_CLAIMS,
-		PAGE_LIKES,
-		POST_ENGAGEMENT,
-		PRODUCT_CATALOG_SALES,
-		REACH,
-		VIDEO_VIEWS
-	}
-	public enum CAMPAIGN_STATUS : int
-	{
-		ACTIVE,
-		PAUSED,
-		DELETED,
-		ARCHIVED
-	}
-	public enum EENUM_BID_STRATEGY : int
-	{
-		VOWEST_COST_WITHOUT_CAP,
-		LOWEST_COST_WITH_BID_CAP,
-		TARGET_COST
-	}
+
 
 
 

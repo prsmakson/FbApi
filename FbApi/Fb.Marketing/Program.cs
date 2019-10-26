@@ -12,7 +12,7 @@ namespace Fb.Marketing
     {
         static void Main(string[] args)
         {
-            string token = "EAABsbCS1iHgBAC7qYffG0hfQyvWMzwtQkZB8V3BeZCtaZCxW8TC1CFRHmk4qc9nP7PW89LGSZAXIQ4m5aF8pZCAyr1BTKeF9ZCeynSmTs5OMai6mXhgA4qnGzZASM9197E9O5c9TjffyxJn2UZCXtwhDCXq7ZBVVPdsfsByXKLzWQZCwZDZD";
+            string token = "EAABsbCS1iHgBAN0HE7drDDxriG5bCk9eQohQDZCEQe8ze31CHopJWaDLCR17PYxmqVXtZABiuDIvmlUnOWNzT1w91mUEyenWaU7FEldulda5JHIgRQBl5lXRlYgSYIYfPakSoQXx4ivZCpZAqktwZCBzpiwFlVoCmn64X0d1GJwZDZD";
             //string token = "EAABsbCS1iHgBAIfMBMUxWbC1PNHnlrWzXiIqTTemzhLqy0ZB4QZCmdoKBDhbZAyRs5Ft7jcvl6CuEAluGDNpbLivvJ6pS2rh2GJYMJoaUDpQ5ZCUJVoJMWVInTXg4JRusCh7JSXnfJs9JjmLZAOc7IywCp03sDaTuWEtBgpbk2Weg83jnj8inuXCeprJRdxIZD";
             try
             {
@@ -37,11 +37,20 @@ namespace Fb.Marketing
 
 				}
 				var AdAccounts = b.GetAdAccounts();
-				foreach (var rs in b.adAccounts)
+				
+				foreach (var rs in AdAccounts)
 				{
+					rs.GetCampaigns();
 					var prop = typeof(AdAccount).GetProperties().Where(r => r.PropertyType == typeof(string) || r.PropertyType == typeof(bool));
 					foreach (var p in prop)
 						Console.WriteLine($"Name:{p.Name}, value: {p.GetValue(rs)}");
+					Console.WriteLine();
+				}
+				foreach (var c in AdAccounts.First(r => r.name == "4").campaigns)
+				{
+					var prop = typeof(Campaign).GetProperties().Where(r => r.PropertyType == typeof(string) || r.PropertyType == typeof(bool));
+					foreach (var p in prop)
+						Console.WriteLine($"Name:{p.Name}, value: {p.GetValue(c)}");
 					Console.WriteLine();
 				}
 				//foreach (var rs in b.pages)

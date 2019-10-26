@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-    class Ads : BaseBusiness
-    {
-    }
+	public class AdAssetFeedSpecAssetLabel: BaseModel
+	{
+	}
 }

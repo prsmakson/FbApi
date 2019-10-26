@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-	class User
+	public class User
 	{
 		[JsonProperty("about")]
 		public string mAbout = null;

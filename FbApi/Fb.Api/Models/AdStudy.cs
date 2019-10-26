@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fb.Api.Models
 {
-	class AdStudy : BaseModel
+	public class AdStudy : BaseModel
 	{
 		[JsonProperty("business")]
 		public Business mBusiness { get; private set; } = null;
