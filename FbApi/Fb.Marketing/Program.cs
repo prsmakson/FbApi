@@ -72,17 +72,18 @@ namespace Fb.Marketing
 				//Console.WriteLine(time.Elapsed);
 				Campaign campaign = new Campaign(b, b.adAccounts.First(r => r.name == "1")) { name = "VasyaFirstApp", objective = Campaign.ENUM_OBJECTIVE.LINK_CLICKS, status = Campaign.CAMPAIGN_STATUS.PAUSED };
 				string idCamp = campaign.SetCampaignToFacebook();
-				//AdSet adset = new AdSet()
-				//{
-				//	name = "Vasilia",
-				//	optimizationGoal = AdSet.OPTIMIZATION_GOAL.REACH,
-				//	bidAmount = 2,
-				//	dailyBudget = "1000",
-				//	campaignId = idCamp,
-				//	targeting = "geo_locations\":{ \"countries\":[\"US\"]",
-				//	status = AdSet.CONFIGURED_STATUS.PAUSED
-				//};
-
+				AdSet adset = new AdSet(b, b.adAccounts.First(r => r.name == "1"))
+				{
+					name = "Vasilia",
+					optimizationGoal = AdSet.OPTIMIZATION_GOAL.REACH,
+					bidAmount = 2,
+					billingEvent= AdSet.BILLING_EVENT.IMPRESSIONS,
+					dailyBudget = "1000",
+					campaignId = idCamp,
+					targeting = new Targeting { geoLocations= new TargetingGeoLocation { countries= new List<string> { "US","RU" } } },
+					status = AdSet.CONFIGURED_STATUS.PAUSED
+				};
+				Console.WriteLine(adset.SetAdSetToFacebook());
 
 			}
 			//Console.WriteLine(campaign.SetCampaignToFacebook());

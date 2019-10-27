@@ -110,7 +110,7 @@ namespace Fb.Api.Models
 		//[JsonProperty("generation")]
 		// public IEnumerable<IDName> mGeneration { get; private set; } = null;
 		[JsonProperty("geo_locations")]
-		public TargetingGeoLocation geoLocations { get; private set; } = null;
+		public TargetingGeoLocation geoLocations { get; set; } = null;
 		[JsonProperty("home_ownership")]
 		public IEnumerable<IDName> homeOwnership { get; private set; } = null;
 		[JsonProperty("home_type")]

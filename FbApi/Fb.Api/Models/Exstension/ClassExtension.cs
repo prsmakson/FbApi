@@ -12,7 +12,7 @@ namespace Fb.Api.Models.Exstension
 	{
 		public static string GetDisplayName(this Type t, string paramName)
 		{
-			return (t.GetProperty(paramName).GetCustomAttribute(typeof(JsonPropertyAttribute), false) as JsonPropertyAttribute).PropertyName;
+			return (t.GetProperty(paramName).GetCustomAttribute(typeof(JsonPropertyAttribute), false) as JsonPropertyAttribute)?.PropertyName;
 		}
 
 		public static string GetRequestGetstring(this Type t)
@@ -27,30 +27,56 @@ namespace Fb.Api.Models.Exstension
 				.Select(r => GetDisplayName(t, r.Name)))).Trim(',');
 
 		}
+		private static string GetEnumIsString(this Type t, string value)
+		{
+
+			return (t.GetField(value).GetCustomAttribute(typeof(JsonPropertyAttribute), false)) as JsonPropertyAttribute != null ? value : "";
+
+		}
 		public static string GetRequestPostString(this Type t, object obj)
 		{
 			string result = "";
 			var props = t.GetProperties().Where(prop => prop.GetCustomAttribute(typeof(JsonPropertyAttribute), false) != null);
 			foreach (var p in props)
 			{
-				if (p.PropertyType == typeof(string) || p.PropertyType == typeof(bool?) || p.PropertyType == typeof(long?) || p.PropertyType.IsPrimitive || p.PropertyType.IsEnum)
+				if ((p.PropertyType == typeof(string) || p.PropertyType == typeof(bool?) || p.PropertyType == typeof(long?)))
 				{
 					var val = p.GetValue(obj);
-						if (val != null)
-						result = p.Name + "=" + val + "&";
+					if (val != null)
+						result += GetDisplayName(t, p.Name) + "=" + val + "&";
+				}
+				if (p.PropertyType == typeof(DateTime?))
+				{
+					var val = p.GetValue(obj);
+					if (val != null)
+						result += GetDisplayName(t, p.Name) + "=" + val.ToString() + "&";
 				}
 				if (p.PropertyType == typeof(IEnumerable<string>))
 				{
 					var val = p.GetValue(obj);
 					if (val != null)
-						result += p.Name + "=" + string.Join(",", val)+"&";
+						result += GetDisplayName(t, p.Name) + "=" + string.Join(",", val) + "&";
 				}
-				if (!p.PropertyType.IsPrimitive && !(p.PropertyType == typeof(string)) && !(p.PropertyType == typeof(bool?)) && !(p.PropertyType == typeof(long?)) && !(p.PropertyType == typeof(IEnumerable<string>)))
+				if (Nullable.GetUnderlyingType(p.PropertyType)?.IsEnum ?? false)
 				{
 					var val = p.GetValue(obj);
-					if (val != null) {
-						result += p.Name + "=" + JsonConvert.SerializeObject(val, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }) + "%";
-							}
+					if (val != null)
+					{
+						var enumT = Nullable.GetUnderlyingType(p.PropertyType);
+						var valueIsString = GetEnumIsString(enumT, val.ToString());
+						int valueOfenum = (int)Convert.ChangeType(Enum.Parse(enumT, val.ToString()),enumT);
+						result += GetDisplayName(t,p.Name) + "=";
+						result += valueIsString !=null ? valueIsString : valueOfenum.ToString();
+						result += "&";
+					}
+				}
+				if (!p.PropertyType.IsValueType && !p.PropertyType.IsPrimitive && !(Nullable.GetUnderlyingType(p.PropertyType)?.IsEnum ?? false)&&p.PropertyType != typeof(string) && p.PropertyType != typeof(bool?) && p.PropertyType != typeof(long?))
+				{
+					var val = p.GetValue(obj);
+					if (val != null)
+					{
+						result += GetDisplayName(t, p.Name) + "=" + JsonConvert.SerializeObject(val, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }) + "&";
+					}
 
 				}
 			}

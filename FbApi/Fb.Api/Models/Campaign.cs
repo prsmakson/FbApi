@@ -121,35 +121,59 @@ namespace Fb.Api.Models
 		#region Enums
 		public enum ENUM_EFFECTIVE_STATUS : int
 		{
+			[JsonProperty("ACTIVE")]
 			ACTIVE,
+			[JsonProperty("ARCHIVED")]
 			ARCHIVED,
+			[JsonProperty("DELETED")]
 			DELETED,
+			[JsonProperty("IN_PROCESS")]
 			IN_PROCESS,
+			[JsonProperty("PAUSED")]
 			PAUSED,
+			[JsonProperty("WITH_ISSUES")]
 			WITH_ISSUES
 		}
+		
 		public enum ENUM_OBJECTIVE : int
-		{
+		{	[JsonProperty("APP_INSTALLS")]
 			APP_INSTALLS,
+			[JsonProperty("BRAND_AWARENESS")]
 			BRAND_AWARENESS,
+			[JsonProperty("CONVERSIONS")]
 			CONVERSIONS,
+			[JsonProperty("EVENT_RESPONSES")]
 			EVENT_RESPONSES,
+			[JsonProperty("LEAD_GENERATION")]
 			LEAD_GENERATION,
+			[JsonProperty("LINK_CLICKS")]
 			LINK_CLICKS,
+			[JsonProperty("LOCAL_AWARENESS")]
 			LOCAL_AWARENESS,
+			[JsonProperty("MESSAGES")]
 			MESSAGES,
+			[JsonProperty("OFFER_CLAIMS")]
 			OFFER_CLAIMS,
+			[JsonProperty("PAGE_LIKES")]
 			PAGE_LIKES,
+			[JsonProperty("POST_ENGAGEMENT")]
 			POST_ENGAGEMENT,
+			[JsonProperty("PRODUCT_CATALOG_SALES")]
 			PRODUCT_CATALOG_SALES,
+			[JsonProperty("REACH")]
 			REACH,
+			[JsonProperty("VIDEO_VIEWS")]
 			VIDEO_VIEWS
 		}
 		public enum CAMPAIGN_STATUS : int
 		{
+			[JsonProperty("ACTIVE")]
 			ACTIVE,
+			[JsonProperty("PAUSED")]
 			PAUSED,
+			[JsonProperty("DELETED")]
 			DELETED,
+			[JsonProperty("ARCHIVED")]
 			ARCHIVED
 		}
 		public enum EENUM_BID_STRATEGY : int

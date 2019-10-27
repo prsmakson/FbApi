@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Fb.Api.Helpers;
+using Fb.Api.Models.Exstension;
 using Fb.Api.Models.Intf;
 using Newtonsoft.Json;
 
@@ -31,7 +33,7 @@ namespace Fb.Api.Models
 		[JsonProperty("bid_strategy")]
 		public BID_STRATEGY? bidStrategy { get; private set; } = null;
 		[JsonProperty("billing_event")]
-		public BILLING_EVENT? billingEvent { get; private set; } = null;
+		public BILLING_EVENT? billingEvent { get; set; } = null;
 		[JsonProperty("budget_remaining")]
 		public string budgetRemaining { get; private set; } = null;
 
@@ -127,9 +129,16 @@ namespace Fb.Api.Models
 			this.campaign = campaign;
 			campaignId = campaign.id;
 		}
+		public AdSet() { }
+		public AdSet(Business business,AdAccount adAccount)
+		{
+			SetAdAccount(adAccount);
+			SetBusiness(business);
+		}
 		public string SetAdSetToFacebook()
 		{
-			return null;
+			string request = business.account.baseUri + adAccount.id + $"/adsets/?{typeof(AdSet).GetRequestPostString(this)}" + $"&access_token={business.account.getToken()}";
+			return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings));
 		}
 		#endregion
 		#region enums
@@ -145,9 +154,13 @@ namespace Fb.Api.Models
 		}
 		public enum CONFIGURED_STATUS
 		{
+			[JsonProperty("ACTIVE")]
 			ACTIVE,
+			[JsonProperty("PAUSED")]
 			PAUSED,
+			[JsonProperty("DELETED")]
 			DELETED,
+			[JsonProperty("ARCHIVED")]
 			ARCHIVED
 		}
 		public enum BID_STRATEGY : int
@@ -160,43 +173,77 @@ namespace Fb.Api.Models
 
 		public enum OPTIMIZATION_GOAL : int
 		{
+			[JsonProperty("NONE")]
 			NONE,
+			[JsonProperty("APP_INSTALLS")]
 			APP_INSTALLS,
+			[JsonProperty("BRAND_AWARENESS")]
 			BRAND_AWARENESS,
+			[JsonProperty("AD_RECALL_LIFT")]
 			AD_RECALL_LIFT,
+			[JsonProperty("CLICKS")]
 			CLICKS,
+			[JsonProperty("ENGAGED_USERS")]
 			ENGAGED_USERS,
+			[JsonProperty("EVENT_RESPONSES")]
 			EVENT_RESPONSES,
+			[JsonProperty("IMPRESSIONS")]
 			IMPRESSIONS,
+			[JsonProperty("LEAD_GENERATION")]
 			LEAD_GENERATION,
+			[JsonProperty("LINK_CLICKS")]
 			LINK_CLICKS,
+			[JsonProperty("OFFER_CLAIMS")]
 			OFFER_CLAIMS,
+			[JsonProperty("OFFSITE_CONVERSIONS")]
 			OFFSITE_CONVERSIONS,
+			[JsonProperty("PAGE_ENGAGEMENT")]
 			PAGE_ENGAGEMENT,
+			[JsonProperty("PAGE_LIKES")]
 			PAGE_LIKES,
+			[JsonProperty("POST_ENGAGEMENT")]
 			POST_ENGAGEMENT,
+			[JsonProperty("REACH")]
 			REACH,
+			[JsonProperty("OCIAL_IMPRESSIONS")]
 			OCIAL_IMPRESSIONS,
+			[JsonProperty("VIDEO_VIEWS")]
 			VIDEO_VIEWS,
+			[JsonProperty("APP_DOWNLOADS")]
 			APP_DOWNLOADS,
+			[JsonProperty("TWO_SECOND_CONTINUOUS_VIDEO_VIEWS")]
 			TWO_SECOND_CONTINUOUS_VIDEO_VIEWS,
+			[JsonProperty("LANDING_PAGE_VIEWS")]
 			LANDING_PAGE_VIEWS,
+			[JsonProperty("VALUE")]
 			VALUE,
+			[JsonProperty("THRUPLAY")]
 			THRUPLAY,
+			[JsonProperty("REPLIES")]
 			REPLIES,
+			[JsonProperty("DERIVED_EVENTS")]
 			DERIVED_EVENTS
 		}
 		public enum BILLING_EVENT
-		{
+		{	[JsonProperty("APP_INSTALLS")]
 			APP_INSTALLS,
+			[JsonProperty("CLICKS")]
 			CLICKS,
+			[JsonProperty("IMPRESSIONS")]
 			IMPRESSIONS,
+			[JsonProperty("LINK_CLICKS")]
 			LINK_CLICKS,
+			[JsonProperty("NONE")]
 			NONE,
+			[JsonProperty("OFFER_CLAIMS")]
 			OFFER_CLAIMS,
+			[JsonProperty("PAGE_LIKES")]
 			PAGE_LIKES,
+			[JsonProperty("POST_ENGAGEMENT")]
 			POST_ENGAGEMENT,
+			[JsonProperty("VIDEO_VIEWS")]
 			VIDEO_VIEWS,
+			[JsonProperty("THRUPLAY")]
 			THRUPLAY
 		}
 		#endregion
