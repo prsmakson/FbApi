@@ -2,12 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Fb.Api.Models.Intf;
 namespace Fb.Api.Models
 {
-	class Ad : IAdAccount, IBusiness
+	class Ad : IAdAccount, IBusiness, INameID
 	{
-
+		[JsonProperty("name")]
+		public string name { get; set; } = null;
+		[JsonProperty("id")]
+		public string id { get; private set; } = null;
 		[JsonProperty("ad_review_feedback")]
 		public AdgroupReviewFeedback adReviewFeedback { get; private set; } = null;
 		[JsonProperty("adlabels")]
@@ -116,11 +119,14 @@ namespace Fb.Api.Models
 
 		}
 		#endregion
-		#region NotEntity
+		#region ParamsNotEntity
 		[JsonProperty("account_id")]
 		public string accountId { get; private set; }
 		public AdAccount adAccount { get; private set; }
 		public Business business { get; private set; }
+
+		#endregion
+		#region SetFunctions
 		public void SetAdAccount(AdAccount adAccount)
 		{
 			this.adAccount = adAccount;

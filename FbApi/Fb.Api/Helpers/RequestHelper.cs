@@ -14,6 +14,8 @@ namespace Fb.Api.Helpers
         {
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(request);
             req.Method = settings.requestMethod;
+			if (settings.proxy != null)
+				req.Proxy = settings.proxy;
             foreach (var header in settings.headers)
                 req.Headers.Add(header.Key, header.Value);
             var response = (HttpWebResponse)req.GetResponse();
@@ -40,6 +42,7 @@ namespace Fb.Api.Helpers
     {
         public string requestMethod { get; set; }
         public Dictionary<HttpRequestHeader, string> headers { get; set; } = new Dictionary<HttpRequestHeader, string>();
+		public WebProxy proxy { get; set; } = null;
 
     }
 }

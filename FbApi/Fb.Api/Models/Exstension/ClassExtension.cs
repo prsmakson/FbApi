@@ -10,7 +10,7 @@ namespace Fb.Api.Models.Exstension
 {
 	static class ClassExtension
 	{
-		public static string GetDisplayName(this Type t, string paramName)
+		private static string GetDisplayName(this Type t, string paramName)
 		{
 			return (t.GetProperty(paramName).GetCustomAttribute(typeof(JsonPropertyAttribute), false) as JsonPropertyAttribute)?.PropertyName;
 		}
@@ -30,7 +30,7 @@ namespace Fb.Api.Models.Exstension
 		private static string GetEnumIsString(this Type t, string value)
 		{
 
-			return (t.GetField(value).GetCustomAttribute(typeof(JsonPropertyAttribute), false)) as JsonPropertyAttribute != null ? value : "";
+			return (t.GetField(value).GetCustomAttribute(typeof(JsonPropertyAttribute), false)) as JsonPropertyAttribute != null ? value : null;
 
 		}
 		public static string GetRequestPostString(this Type t, object obj)

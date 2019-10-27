@@ -11,6 +11,15 @@ namespace Fb.Api.Models
 {
 	public class Campaign : IAdAccount, IBusiness, INameID
 	{
+		public Campaign(Business business, AdAccount adAccount)
+		{
+			SetBusiness(business);
+			SetAdAccount(adAccount);
+		}
+		public Campaign()
+		{
+
+		}
 		[JsonProperty("name")]
 		public string name { get; set; } = null;
 		[JsonProperty("id")]
@@ -34,11 +43,11 @@ namespace Fb.Api.Models
 		[JsonProperty("can_use_spend_cap")]
 		public bool? canUseSpendCap { get; private set; } = null;
 		[JsonProperty("configured_status")]
-		public CAMPAIGN_STATUS? configuredStatus { get;  set; } = null;
+		public CAMPAIGN_STATUS? configuredStatus { get; set; } = null;
 		[JsonProperty("created_time")]
 		public DateTime? сreatedTime { get; private set; } = null;
 		[JsonProperty("daily_budget")]
-		public string dailyBudget { get;  set; } = null; //-- загружается
+		public string dailyBudget { get; set; } = null; //-- загружается
 		[JsonProperty("effective_status")]
 		public ENUM_EFFECTIVE_STATUS? effectiveStatus { get; set; } = null;
 		[JsonProperty("issues_info")]
@@ -75,34 +84,6 @@ namespace Fb.Api.Models
 		public string toplineId { get; private set; } = null;
 		[JsonProperty("updated_time")]
 		public string updatedTime { get; private set; } = null;
-		public Campaign(Business business, AdAccount adAccount)
-		{
-			SetBusiness(business);
-			SetAdAccount(adAccount);
-		}
-		public Campaign()
-		{
-
-		}
-		//public string buying_type { get => "AUCTION"; set { buying_type = value; } }   // 
-		public IEnumerable<AdSet> GetAdSets()
-		{
-			string request = business.account.baseUri + id + "?fields=adsets{" + typeof(AdSet).GetRequestGetstring() + "}&access_token=" + business.account.getToken();
-			return ParseJsonResponseHelper.ParseAdsets(RequestHelper.SendGetRequest(request, business.account.getSettings));
-		}
-		public string SetCampaignToFacebook()
-		{
-			string request = business.account.baseUri + adAccount.id + $"/campaigns/?{typeof(Campaign).GetRequestPostString(this)}" + $"&access_token={business.account.getToken()}";
-			return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings));
-		}
-		public bool? UpdateCampaign()
-		{
-			return true;
-		}
-		public void SetStatus()
-		{
-
-		}
 
 		#region ParamsNotEntity
 		[JsonProperty("account_id")]
@@ -118,6 +99,33 @@ namespace Fb.Api.Models
 			this.business = business;
 		}
 		#endregion
+		//public string buying_type { get => "AUCTION"; set { buying_type = value; } }   // 
+		#region GetFunctions
+		public IEnumerable<AdSet> GetAdSets()
+		{
+			string request = business.account.baseUri + id + "?fields=adsets{" + typeof(AdSet).GetRequestGetstring() + "}&access_token=" + business.account.getToken();
+			return ParseJsonResponseHelper.ParseAdsets(RequestHelper.SendGetRequest(request, business.account.getSettings));
+		}
+		
+		#endregion
+		#region SetFunctions
+		public bool UpdateCampaign()
+		{
+			return true;
+		}
+		public string SetCampaignToFacebook()
+		{
+			string request = business.account.baseUri + adAccount.id + $"/campaigns/?{typeof(Campaign).GetRequestPostString(this)}" + $"&access_token={business.account.getToken()}";
+			return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings));
+		}
+		
+		public void SetStatus()
+		{
+
+		}
+		#endregion
+
+
 		#region Enums
 		public enum ENUM_EFFECTIVE_STATUS : int
 		{
@@ -134,9 +142,10 @@ namespace Fb.Api.Models
 			[JsonProperty("WITH_ISSUES")]
 			WITH_ISSUES
 		}
-		
+
 		public enum ENUM_OBJECTIVE : int
-		{	[JsonProperty("APP_INSTALLS")]
+		{
+			[JsonProperty("APP_INSTALLS")]
 			APP_INSTALLS,
 			[JsonProperty("BRAND_AWARENESS")]
 			BRAND_AWARENESS,
