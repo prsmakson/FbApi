@@ -6,10 +6,11 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using Fb.Api.Models.Exstension;
 using Fb.Api.Models.Intf;
+using System.Threading.Tasks;
 
 namespace Fb.Api.Models
 {
-	public class Campaign : IAdAccount, IBusiness, INameID
+	public class Campaign : IAdAccount, IBusiness, INameID, IReferences
 	{
 		public Campaign(Business business, AdAccount adAccount)
 		{
@@ -90,6 +91,7 @@ namespace Fb.Api.Models
 		public string accountId { get; private set; }
 		public AdAccount adAccount { get; private set; }
 		public Business business { get; private set; }
+		public IEnumerable<AdSet> adSets { get; private set; }
 		public void SetAdAccount(AdAccount adAccount)
 		{
 			this.adAccount = adAccount;
@@ -100,13 +102,27 @@ namespace Fb.Api.Models
 		}
 		#endregion
 		//public string buying_type { get => "AUCTION"; set { buying_type = value; } }   // 
-		#region GetFunctions
+		#region GetFunctions      
+		public void LoadReferencesObject()
+		{
+			var adSets=GetAdSetsAsync();
+			this.adSets = adSets.Result;
+		}
+		private void LoadAdsetReferences()
+		{
+			if(adSets!=null)
+				foreach(var a in adSets)
+					a.lo
+		}
 		public IEnumerable<AdSet> GetAdSets()
 		{
 			string request = business.account.baseUri + id + "?fields=adsets{" + typeof(AdSet).GetRequestGetstring() + "}&access_token=" + business.account.getToken();
 			return ParseJsonResponseHelper.ParseAdsets(RequestHelper.SendGetRequest(request, business.account.getSettings));
 		}
-		
+		public async Task<IEnumerable<AdSet>> GetAdSetsAsync()
+		{
+			return await Task.Run(() => GetAdSets());
+		}
 		#endregion
 		#region SetFunctions
 		public bool UpdateCampaign()
@@ -118,7 +134,7 @@ namespace Fb.Api.Models
 			string request = business.account.baseUri + adAccount.id + $"/campaigns/?{typeof(Campaign).GetRequestPostString(this)}" + $"&access_token={business.account.getToken()}";
 			return ParseJsonResponseHelper.ParseResultOrId(RequestHelper.SendGetRequest(request, business.account.postSettings));
 		}
-		
+
 		public void SetStatus()
 		{
 

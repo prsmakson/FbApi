@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Fb.Api.Models
 {
-	public class AdSet : IAdAccount, IBusiness, INameID
+	public class AdSet : IAdAccount, IBusiness, INameID,IReferences
 	{
 		[JsonProperty("name")]
 		public string name { get; set; } = null;
@@ -247,7 +247,10 @@ namespace Fb.Api.Models
 			THRUPLAY
 		}
 		#endregion
+		public void LoadReferencesObject()
+		{
 
+		}
 	}
 
 

@@ -84,24 +84,33 @@ namespace Fb.Api.Models
 		}
 		#endregion
 		#region SetFunctions
-		public void SetBusinessAccount(Account account)
+		private void SetBusinessAccount(Account account)
 		{
 			this.account = account;
 		}
+		private void LoadReferencesAdAccount()
+		{
+			if (adAccounts != null)
+				foreach (var acc in adAccounts)
+					acc.LoadReferencesObject();
+		}
 		private void SetBusinessForAdAccount()
 		{
-			foreach (var acc in adAccounts)
-				acc.SetBusiness(this);
+			if (adAccounts != null)
+				foreach (var acc in adAccounts)
+					acc.SetBusiness(this);
 		}
 		private void SetBusinessForPages()
 		{
-			foreach (var page in pages)
-				page.SetBusiness(this);
+			if (pages != null)
+				foreach (var page in pages)
+					page.SetBusiness(this);
 		}
 		private void SetBusinessForPiexels()
 		{
-			foreach (var pixel in pixels)
-				pixel.SetBusiness(this);
+			if (pixels != null)
+				foreach (var pixel in pixels)
+					pixel.SetBusiness(this);
 		}
 		#endregion
 		public void LoadReferencesObject()
@@ -112,7 +121,7 @@ namespace Fb.Api.Models
 			pages = pagesA.Result;
 			adAccounts = adAccountsA.Result;
 			pixels = pixelsA.Result;
-
+			LoadReferencesAdAccount();
 
 		}
 

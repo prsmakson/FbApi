@@ -8,8 +8,8 @@ namespace Fb.Api
 	public class RawCustomAudience
 	{
 		[JsonProperty("id")]
-		public string mId { get; private set; } = null;
+		public string id { get; private set; } = null;
 		[JsonProperty("name")]
-		public string mName { get; private set; } = null;
+		public string name { get; private set; } = null;
 	}
 }

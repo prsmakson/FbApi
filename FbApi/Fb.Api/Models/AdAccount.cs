@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using Fb.Api.Helpers;
 using Newtonsoft.Json;
 using Fb.Api.Models.Exstension;
+using Fb.Api.Models.Intf;
 namespace Fb.Api.Models
 {
 
-	public class AdAccount : BaseBusiness
+	public class AdAccount : IReferences
 	{
+		[JsonProperty("name")]
+		public string name { get; private set; } = null;
+		[JsonProperty("id")]
+		public string id { get; private set; } = null;
 		public string adAccountId { get => "act_" + id; }
 		[JsonProperty("account_status")]
 		public ACCOUNT_STATUS accountStatus { get; set; }// сделать private
@@ -74,6 +79,7 @@ namespace Fb.Api.Models
 		public IEnumerable<string> userTasks { get; private set; }
 		#region ParamsNotEntity
 
+		public Business business { get; private set; }
 
 		public IEnumerable<Campaign> campaigns { get; set; }
 		public IEnumerable<Campaign> GetCampaigns()
@@ -87,11 +93,22 @@ namespace Fb.Api.Models
 		{
 			return await Task.Run(() => GetCampaigns());
 		}
-		public async override void LoadReferencesObject()
+		public void LoadReferencesObject()
 		{
 			var campaignA = GetCampaignsAsync();
 			campaigns = campaignA.Result;
+			LoadCampaignReferences();
 
+		}
+		public void SetBusiness(Business business)
+		{
+			this.business = business;
+		}
+		private void LoadCampaignReferences()
+		{
+			if (campaigns != null)
+				foreach (var c in campaigns)
+					c.LoadReferencesObject();
 		}
 		private void SetCampaignBusinessAndAdAccount()
 		{

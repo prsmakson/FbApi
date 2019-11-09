@@ -8,10 +8,10 @@ namespace Fb.Api.Models
 	public class AdCampaignFrequencyControlSpecs
 	{
 		[JsonProperty("event")]
-		public string mEvent = null;
+		public string @event = null;
 		[JsonProperty("interval_days")]
-		public long? mIntervalDays = null;
+		public long? intervalDays = null;
 		[JsonProperty("max_frequency")]
-		public long? mMaxFrequency = null;
+		public long? maxFrequency = null;
 	}
 }
