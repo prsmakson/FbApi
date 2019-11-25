@@ -84,7 +84,7 @@ namespace Fb.Api.Models
 		}
 		#endregion
 		#region SetFunctions
-		private void SetBusinessAccount(Account account)
+		public void SetBusinessAccount(Account account)
 		{
 			this.account = account;
 		}

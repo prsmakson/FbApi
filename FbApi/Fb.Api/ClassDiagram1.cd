@@ -1,2 +1,711 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fb.Api.Models.BaseAdAccount" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseModels\BaseAdAccount.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Fb.Api.Models.BaseBusiness" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseModels\BaseBusiness.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Fb.Api.Models.BaseModel" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\BaseModels\BaseModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Fb.Api.Models.Account" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAgEIAAgAAAAAAAAAAAAAAAgAAACAAAGEAgA=</HashCode>
+      <FileName>Models\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.Ad" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EkQEwAQIAIQCAEEAAAQAAhAAAQlEAAYBAIQFQQAFMgA=</HashCode>
+      <FileName>Models\Ad.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fb.Api.Models.AdAccount" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAQQAAgAAAJwVAICMAMAAAIIAQEAAAVIogCAcAEAhA=</HashCode>
+      <FileName>Models\AdAccount.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fb.Api.Models.fundingSourceDetails" Collapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpec" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAAQQACABAAIAAAAAAAEAIAQAAAAAAIKAEAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecAssetLabel" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecAssetLabel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecBody" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAACAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecBody.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecCaption" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAACAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecCaption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecDescription" Collapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAACAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecGroupRule" Collapsed="true">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgAAACAABAAAAAAAAAAAAAAAACAAAAAAAAAAARAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecGroupRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecImage" Collapsed="true">
+    <Position X="30.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAAACAQAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecLinkURL" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAEBAAAgAAAAAAAAAAAAAgACAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecLinkURL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecTitle" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAACAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecTitle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdAssetFeedSpecVideo" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAgAAAAAAAACACBAAACAAAAA=</HashCode>
+      <FileName>Models\AdAssetFeedSpecVideo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdBidAdjustments" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdBidAdjustments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCampaignBidConstraint" Collapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCampaignBidConstraint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCampaignFrequencyControlSpecs" Collapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\AdCampaignFrequencyControlSpecs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCampaignIssuesInfo" Collapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAACQAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCampaignIssuesInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreative" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oQAAAAGAQAAQQIogBQUAYgEIgRRAAhTBgDASQCGAAdQ=</HashCode>
+      <FileName>Models\AdCreative.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeCollectionThumbnailInfo" Collapsed="true">
+    <Position X="28.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeCollectionThumbnailInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeInteractiveComponentsSpec" Collapsed="true">
+    <Position X="30.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeInteractiveComponentsSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkData" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGQAgEUANYAEAABAIAAAAUQAAAAQAAAYADIQAAhgAiA=</HashCode>
+      <FileName>Models\AdCreativeLinkData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkDataAppLinkSpec" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAQAAAAAQAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeLinkDataAppLinkSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkDataCallToAction" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeLinkDataCallToAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkDataCallToActionValue" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKCAEIAAAAAAAAAAEIAAAAAAAAQgAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Models\AdCreativeLinkDataCallToActionValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkDataChildAttachment" Collapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQABIAAAAAAIQAAAAAAAAAEAACAAAAQAAgAAkA=</HashCode>
+      <FileName>Models\AdCreativeLinkDataChildAttachment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkDataImageLayerSpec" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEGAAAAAAAAAQAAAAAACAACAAAAIBAAABAAAAAQABg=</HashCode>
+      <FileName>Models\AdCreativeLinkDataImageLayerSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeLinkDataImageOverlaySpec" Collapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAAAAAAAAoQAAAAAAAAAAAAAAAEAEAAg=</HashCode>
+      <FileName>Models\AdCreativeLinkDataImageOverlaySpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeObjectStorySpec" Collapsed="true">
+    <Position X="28.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAEAgAAAAAAAAAECAAAAAAAAAAAAAAAYAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeObjectStorySpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativePhotoData" Collapsed="true">
+    <Position X="30.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAQAAAAAAAAAIAAAAACAAAAgAAAA=</HashCode>
+      <FileName>Models\AdCreativePhotoData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativePlaceData" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAABAAAIAAAAAACAABAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativePlaceData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativePlatformCustomization" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativePlatformCustomization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativePortraitCustomizations" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativePortraitCustomizations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativePostClickConfiguration" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativePostClickConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeRecommenderSettings" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeRecommenderSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeStaticFallbackSpec" Collapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAIQAAAAAAAAAEAAAAAAAAAAAAAGA=</HashCode>
+      <FileName>Models\AdCreativeStaticFallbackSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeTemplateURLSpec" Collapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAggAAAAAAEAAQAAAAAQAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Models\AdCreativeTemplateURLSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeTextData" Collapsed="true">
+    <Position X="28.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\AdCreativeTextData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCreativeVideoData" Collapsed="true">
+    <Position X="30.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEEAZQAAQAAAAQAAAQAAIAAAAACAACAAAABAAGA=</HashCode>
+      <FileName>Models\AdCreativeVideoData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdCustomizationRuleSpec" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAIAAIAABAAAAAAAEAAAAAAAAAAgAAGA=</HashCode>
+      <FileName>Models\AdCustomizationRuleSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdgroupIssuesInfo" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAIAAAAAEAAAAIAgAAAAAAAAA=</HashCode>
+      <FileName>Models\AdgroupIssuesInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdgroupPlacementSpecificReviewFeedback" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kgAIAABEQgAQAABBgAAAABAAAABAkQAEAAwAEAACQAs=</HashCode>
+      <FileName>Models\AdgroupPlacementSpecificReviewFeedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdgroupReviewFeedback" Collapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdgroupReviewFeedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdLabel" Collapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdLabel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdPromotedObject" Collapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEIAAEAAgAAAEAACgAAAAEAAAQEAhAAgAAAIAAQAMA=</HashCode>
+      <FileName>Models\AdPromotedObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdRecommendation" Collapsed="true">
+    <Position X="27" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAKAAACAAAAgAAAAAQACA=</HashCode>
+      <FileName>Models\AdRecommendation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdRecommendationData" Collapsed="true">
+    <Position X="28.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Models\AdRecommendationData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdSet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BkQIQA4JAAgDEkAQQIAgQiCgAAEMISQhAJYRYQBIEgA=</HashCode>
+      <FileName>Models\AdSet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fb.Api.Models.AdsImageCrops" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAUAwAAAAAAAgAAAAAIAA=</HashCode>
+      <FileName>Models\AdsImageCrops.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AdStudy" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCEgARBAAAAAAAAAAAARAAAQAAAAAAAQwAAIAAAAI=</HashCode>
+      <FileName>Models\AdStudy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AndroidAppLink" Collapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAIAAAAAAAAIAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Models\AndroidAppLink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.AttributionSpec" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AttributionSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.Business" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAATABAhACAhAAGgkAAAAACAACAUAAAAAAQAYQAQAkA=</HashCode>
+      <FileName>Models\Business.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fb.Api.Models.BusinessUsers" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BusinessUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.CatalogBasedTargeting" Collapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\CatalogBasedTargeting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.ConversionActionQuery" Collapsed="true">
+    <Position X="27" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgkkAAEAAAAAEmEAQAQAAAggUAAA6AAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ConversionActionQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.DayPart" Collapsed="true">
+    <Position X="28.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DayPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.DeliveryCheck" Collapsed="true">
+    <Position X="30.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Models\DeliveryCheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.DeliveryCheckExtraInfo" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DeliveryCheckExtraInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.FlexibleTargeting" Collapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACIAFEALiCAAEAAAAcQAYBCCADAAEABAgEAAAAAA=</HashCode>
+      <FileName>Models\FlexibleTargeting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.IDName" Collapsed="true">
+    <Position X="21.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\IDName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.InstagrammAccount" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InstagrammAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.IosAppLink" Collapsed="true">
+    <Position X="23.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAoAAA=</HashCode>
+      <FileName>Models\IosAppLink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.Page" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UEAAAAACACICAAAICBQCBRSAAAAYAAAIBAgoMgBAlGE=</HashCode>
+      <FileName>Models\Page.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.VoipInfo" Collapsed="true">
+    <Position X="27" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAIIAAAAAEAAAAAAAAAAAAEAAQABAA=</HashCode>
+      <FileName>Models\Page.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.Pixel" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Pixel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.Targeting" Collapsed="true">
+    <Position X="25.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>D7KEwkEEDIcEc3kAImASgBoBLAExDBAKOwVAghHhwIk=</HashCode>
+      <FileName>Models\Targeting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingDynamicRule" Collapsed="true">
+    <Position X="27" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQAgQAAgAAAAAAAAgAAAAAAAgAAAAAAAAAEAA=</HashCode>
+      <FileName>Models\TargetingDynamicRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocation" Collapsed="true">
+    <Position X="28.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQAAAACAQIAAAQAAAAQMAkCQAgAAAFAARAAgAE=</HashCode>
+      <FileName>Models\TargetingGeoLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationCity" Collapsed="true">
+    <Position X="30.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAACAAAAAAACAAEAAAAAAAEAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationCity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationCustomLocation" Collapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQAAACAAAAAAACAAEAAAACAAEIAACQAAAAAAAIIQ=</HashCode>
+      <FileName>Models\TargetingGeoLocationCustomLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationElectoralDistrict" Collapsed="true">
+    <Position X="18.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAGAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationElectoralDistrict.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationGeoEntities" Collapsed="true">
+    <Position X="20" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAABAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationGeoEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationLocationCluster" Collapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationLocationCluster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationLocationExpansion" Collapsed="true">
+    <Position X="23.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationLocationExpansion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationMarket" Collapsed="true">
+    <Position X="25.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQEAAAAAAAEAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationMarket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationPlace" Collapsed="true">
+    <Position X="27" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAACAAAAAAACAAEAAAACAAEIAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationPlace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationPoliticalDistrict" Collapsed="true">
+    <Position X="28.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAEAAAAAAAEAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationPoliticalDistrict.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationRegion" Collapsed="true">
+    <Position X="30.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAEAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationRegion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingGeoLocationZip" Collapsed="true">
+    <Position X="16.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAEIAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingGeoLocationZip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingProductAudienceSpec" Collapsed="true">
+    <Position X="18.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingProductAudienceSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingProductAudienceSubSpec" Collapsed="true">
+    <Position X="20" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCAAAAA=</HashCode>
+      <FileName>Models\TargetingProductAudienceSubSpec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TargetingProspectingAudience" Collapsed="true">
+    <Position X="21.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TargetingProspectingAudience.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.TrackingAndConversionWithDefaults" Collapsed="true">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\TrackingAndConversionWithDefaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.User" Collapsed="true">
+    <Position X="25.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABYgGAIBAAAkBAAQMAFAAQEAABIFBAUUAEzQCgAgAEA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fb.Api.Models.Exstension.ClassExtension" Collapsed="true">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAABAAAIAAIAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Models\Exstension\ClassExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Fb.Api.Models.IAdAccount" Collapsed="true">
+    <Position X="16.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Intf\IAdAccount.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Fb.Api.Models.IBusiness" Collapsed="true">
+    <Position X="18.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Intf\IBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Fb.Api.Models.Intf.ICampaign" Collapsed="true">
+    <Position X="20" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Intf\ICampaign.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Fb.Api.Models.Intf.IFacebook&lt;T&gt;" Collapsed="true">
+    <Position X="21.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Models\Intf\IFacebook.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Fb.Api.Models.Intf.INameID" Collapsed="true">
+    <Position X="23.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Intf\INameID.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Fb.Api.Models.Intf.IReferences" Collapsed="true">
+    <Position X="25.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Intf\IReferences.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Fb.Api.Models.ACCOUNT_STATUS" Collapsed="true">
+    <Position X="16.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAAAAAAAAAAAACAAAAACAAAAQAAAAAAACAIIACAIA=</HashCode>
+      <FileName>Models\AdAccount.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fb.Api.Models.DISABLE_REASON" Collapsed="true">
+    <Position X="20" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAABARAAAAAAIAAEAAgAAAJAA=</HashCode>
+      <FileName>Models\AdAccount.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fb.Api.Models.FUNDING_SOURCE_TYPE" Collapsed="true">
+    <Position X="23.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAABKABAAICIEAAAAhARAAIAARAAAAAAAAAAAAABABA=</HashCode>
+      <FileName>Models\AdAccount.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fb.Api.Models.DEVICE_PLATFORMS" Collapsed="true">
+    <Position X="18.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAA=</HashCode>
+      <FileName>Models\Targeting.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fb.Api.Models.ENUM_EFFECTIVE_DEVICE_PLATFORMS" Collapsed="true">
+    <Position X="21.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAA=</HashCode>
+      <FileName>Models\Targeting.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

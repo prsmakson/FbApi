@@ -110,9 +110,10 @@ namespace Fb.Api.Models
 		}
 		private void LoadAdsetReferences()
 		{
-			if(adSets!=null)
-				foreach(var a in adSets)
-					a.lo
+			//if(adSets!=null)
+			//	foreach(var a in adSets)
+
+					
 		}
 		public IEnumerable<AdSet> GetAdSets()
 		{
